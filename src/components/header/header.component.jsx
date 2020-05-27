@@ -68,7 +68,6 @@ class Header extends Component {
                   <MDBDropdown>
                     <MDBDropdownToggle nav caret>
                       <span className="mr-2">
-                        Profile &nbsp;
                         <MDBIcon icon="user-alt" />
                       </span>
                     </MDBDropdownToggle>
