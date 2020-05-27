@@ -53,17 +53,6 @@ class Header extends Component {
             <MDBNavbarToggler onClick={this.toggleCollapse} />
             <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
               <MDBNavbarNav left>
-                <MDBNavItem>
-                  <MDBDropdown>
-                    <MDBDropdownToggle nav caret>
-                      <span className="mr-2">Profile</span>
-                    </MDBDropdownToggle>
-                    <MDBDropdownMenu>
-                      <MDBDropdownItem href="#!">Login</MDBDropdownItem>
-                      <MDBDropdownItem href="#!">Signup</MDBDropdownItem>
-                    </MDBDropdownMenu>
-                  </MDBDropdown>
-                </MDBNavItem>
               </MDBNavbarNav>
               <MDBNavbarNav right>
                 <MDBNavItem>
@@ -74,6 +63,17 @@ class Header extends Component {
                 </MDBNavItem>
                 <MDBNavItem>
                     <MDBNavLink to="upcoming-events">Upcoming Events</MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <MDBDropdown>
+                    <MDBDropdownToggle nav caret>
+                      <span className="mr-2">Profile</span>
+                    </MDBDropdownToggle>
+                    <MDBDropdownMenu>
+                      <MDBDropdownItem href="#!">Login</MDBDropdownItem>
+                      <MDBDropdownItem href="#!">Signup</MDBDropdownItem>
+                    </MDBDropdownMenu>
+                  </MDBDropdown>
                 </MDBNavItem>
               </MDBNavbarNav>
             </MDBCollapse>
