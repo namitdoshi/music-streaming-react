@@ -30,7 +30,7 @@
 import React, { Component } from "react";
 import {
 MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
-MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
+MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon
 } from "mdbreact";
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -56,7 +56,7 @@ class Header extends Component {
               </MDBNavbarNav>
               <MDBNavbarNav right>
                 <MDBNavItem>
-                    <MDBNavLink to="#about">About</MDBNavLink>
+                    <MDBNavLink to="#about">About Us</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
                     <MDBNavLink to="#testimonials">Testimonials</MDBNavLink>
@@ -67,7 +67,10 @@ class Header extends Component {
                 <MDBNavItem>
                   <MDBDropdown>
                     <MDBDropdownToggle nav caret>
-                      <span className="mr-2">Profile</span>
+                      <span className="mr-2">
+                        Profile &nbsp;
+                        <MDBIcon icon="user-alt" />
+                      </span>
                     </MDBDropdownToggle>
                     <MDBDropdownMenu>
                       <MDBDropdownItem href="#!">Login</MDBDropdownItem>
