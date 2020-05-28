@@ -33,7 +33,9 @@ const Header = () => {
               <NavLink>Events</NavLink>
             </NavItem>
           </Nav>
-          <NavLink>Sign In</NavLink>
+          <NavLink>
+            <span style={{color: '#fff'}}>Sign In</span>  
+          </NavLink>
         </Collapse>
       </Navbar>
     </div>
