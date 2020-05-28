@@ -25,7 +25,7 @@ const Header = ({ currentUser }) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink >About us</NavLink>
+              <NavLink href = "/aboutus" >About us</NavLink>
             </NavItem>
             <NavItem>
               <NavLink>Events</NavLink>
@@ -37,7 +37,7 @@ const Header = ({ currentUser }) => {
           SIGN OUT
         </div>
       ) : (
-        <NavLink>
+        <NavLink href = "/signin">
             <span style={{color: '#fff'}}>Sign In</span>  
           </NavLink>
       )}
