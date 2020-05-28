@@ -1,8 +1,18 @@
 .about-us{
   text-align: center;
   margin-top: 2.5vh;
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
+
+  img {
+    width: 44vw;
+  }
+
+  .about-us-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
     
 }
 // .inspiration-image{
