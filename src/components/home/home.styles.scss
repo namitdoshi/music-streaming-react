@@ -1,0 +1,19 @@
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .home-heading {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+  }
+
+  .home-img {
+    flex: 1;
+
+    img {
+      width: 44vw;
+    }
+  }
+}
