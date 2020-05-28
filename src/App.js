@@ -11,8 +11,6 @@ import './App.css';
 import HomePage from './pages/home-page/home-page.component';
 
 
-
-
 class App extends React.Component { 
 
   constructor(){
@@ -39,7 +37,7 @@ class App extends React.Component {
   render(){
     return (
         <div>
-          <Header  />
+          <Header/>
           <Switch>
             <Route exact path = '/' component = {HomePage}/>
             <Route path = '/signin' component ={SignInAndSignUpPage} />
