@@ -1,7 +1,9 @@
 .about-us{
   text-align: center;
   margin-top: 2.5vh;
+  height: 100vh;
   // display: flex;
+  // flex-direction: row;
   // justify-content: center;
 
   img {
@@ -10,8 +12,15 @@
 
   .about-us-text {
     display: flex;
+    text-align: left;
     flex-direction: column;
     justify-content: center;
+
+    h2 {
+      margin-right: 5vw;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
   }
     
 }
