@@ -19,7 +19,7 @@ const Header = ({ currentUser }) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="dark" dark expand="md">
         <NavbarBrand href="/">Music Stream</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -37,10 +37,11 @@ const Header = ({ currentUser }) => {
           SIGN OUT
         </div>
       ) : (
-        <NavLink className='option' to='/signin'>
-          SIGN IN
-        </NavLink>
+        <NavLink>
+            <span style={{color: '#fff'}}>Sign In</span>  
+          </NavLink>
       )}
+          
         </Collapse>
       </Navbar>
     </div>
