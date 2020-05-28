@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+import { auth } from '../../Firebase/firebase.utils'
 import {
   Collapse,
   Navbar,
@@ -6,15 +8,11 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
+  NavLink
+  
 } from 'reactstrap';
 
-const Header = () => {
+const Header = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -33,7 +31,16 @@ const Header = () => {
               <NavLink>Events</NavLink>
             </NavItem>
           </Nav>
-          <NavLink>Sign In</NavLink>
+         
+          {currentUser ? (
+        <div className='option' onClick={() => auth.signOut()}>
+          SIGN OUT
+        </div>
+      ) : (
+        <NavLink className='option' to='/signin'>
+          SIGN IN
+        </NavLink>
+      )}
         </Collapse>
       </Navbar>
     </div>
