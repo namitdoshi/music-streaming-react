@@ -8,15 +8,38 @@ import {Switch , Route} from 'react-router-dom';
 import Header from './components/header/header.component';
 import SignInAndSignUpPage from './pages/sign-in-and-signup/sign-in-and-sign-up.component'
 import './App.css';
-import { render } from 'react-dom';
 import HomePage from './pages/home-page/home-page.component';
 
-class App extends React.Component {
+
+
+
+class App extends React.Component { 
+
+  constructor(){
+    super();
+
+    this.state = {
+      currentUser: null
+    }
+  }
+  unsuscribeFromAuth = null;
+
+
+  componentDidMount() {
+    this.unsuscribeFromAuth  =  auth.onAuthStateChanged(user => {
+      this.setState({ currentUser: user});
+
+      console.log(user)
+    });
+   }
+   componentWillUnmount(){
+    this.unsuscribeFromAuth ();
+    }
   
   render(){
     return (
         <div>
-          <Header/>
+          <Header currentUser = {this.state.currentUser} />
           <Switch>
             <Route exact path = '/' component = {HomePage}/>
             <Route path = '/signin' component ={SignInAndSignUpPage} />

@@ -5,9 +5,12 @@ MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon
 } from "mdbreact";
 import { BrowserRouter as Router } from 'react-router-dom';
 
+import { auth } from '../../Firebase/firebase.utils';
+
 class Header extends Component {
     state = {
       isOpen: false
+     
     };
     
     toggleCollapse = () => {
