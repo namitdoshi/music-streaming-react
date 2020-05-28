@@ -12,7 +12,8 @@ const AboutUs = ( ) => (
           <img src= {laptopGuitar} alt="man with guitar and laptop"/>
         </div>
         <div className='col-12 col-sm-12 col-md-6 col-xl-6 about-us-text'>
-          <h2> We are the team of musicians and software developers</h2>
+          <h2>We are a team of musicians and software developers aiming to create a digital solution for</h2>
+          <h2 className='h2-second-line'>everyday problems.</h2>
         </div>
       </div>
     </div>
