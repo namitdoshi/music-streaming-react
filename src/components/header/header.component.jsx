@@ -38,7 +38,7 @@ const Header = ({ currentUser }) => {
           </div>
       ) : (
         <NavLink style={{paddingLeft: '6px'}}>
-          <a href="/signin"><span style={{color: '#fff'}}></span>Sign In</a>  
+          <a style={{color: '#fff'}} href="/signin">Sign In</a>  
         </NavLink>
       )}
           
