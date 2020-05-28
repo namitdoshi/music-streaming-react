@@ -1,62 +1,33 @@
 import React, { Component } from "react";
-import {
-MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
-MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon
-} from "mdbreact";
-import { BrowserRouter as Router } from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar';
+import './App.scss';
 
-import { auth } from '../../Firebase/firebase.utils';
 
-class Header extends Component {
-    state = {
-      isOpen: false
-     
-    };
-    
-    toggleCollapse = () => {
-      this.setState({ isOpen: !this.state.isOpen });
-    }
-    
-    render() {
-      return (
-        <Router>
-          <MDBNavbar color="indigo" dark expand="md">
-            <MDBNavbarBrand>
-              <strong className="white-text">Navbar</strong>
-            </MDBNavbarBrand>
-            <MDBNavbarToggler onClick={this.toggleCollapse} />
-            <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
-              <MDBNavbarNav left>
-              </MDBNavbarNav>
-              <MDBNavbarNav right>
-                <MDBNavItem>
-                    <MDBNavLink to="#about">About Us</MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                    <MDBNavLink to="#testimonials">Testimonials</MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                    <MDBNavLink to="upcoming-events">Upcoming Events</MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBDropdown>
-                    <MDBDropdownToggle nav caret>
-                      <span className="mr-2">
-                        <MDBIcon icon="user-alt" />
-                      </span>
-                    </MDBDropdownToggle>
-                    <MDBDropdownMenu>
-                      <MDBDropdownItem href="#!">Login</MDBDropdownItem>
-                      <MDBDropdownItem href="#!">Signup</MDBDropdownItem>
-                    </MDBDropdownMenu>
-                  </MDBDropdown>
-                </MDBNavItem>
-              </MDBNavbarNav>
-            </MDBCollapse>
-          </MDBNavbar>
-        </Router>
-        );
-      }
+    const Header = () => {
+
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="#features">Features</Nav.Link>
+          <Nav.Link href="#pricing">Pricing</Nav.Link>
+          <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+        <Nav>
+          <Nav.Link href="#deets">More deets</Nav.Link>
+          <Nav.Link eventKey={2} href="#memes">
+            Dank memes
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
     }
     
     export default Header;
