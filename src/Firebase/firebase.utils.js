@@ -3,14 +3,14 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-    apiKey: "AIzaSyD7KX4VdIr2TGWoi75wzCdevwzKIilu7zQ",
-    authDomain: "stream-app-8f9b9.firebaseapp.com",
-    databaseURL: "https://stream-app-8f9b9.firebaseio.com",
-    projectId: "stream-app-8f9b9",
-    storageBucket: "stream-app-8f9b9.appspot.com",
-    messagingSenderId: "911287855784",
-    appId: "1:911287855784:web:fc8cc417f99255290a709d",
-    measurementId: "G-RS1Z6MS2RG"
+  apiKey: "AIzaSyA-jrmNNgDntQjLe1IcZJGIVua11Q9fgMk",
+  authDomain: "music-stream-3f3d6.firebaseapp.com",
+  databaseURL: "https://music-stream-3f3d6.firebaseio.com",
+  projectId: "music-stream-3f3d6",
+  storageBucket: "music-stream-3f3d6.appspot.com",
+  messagingSenderId: "730945698157",
+  appId: "1:730945698157:web:a61960d62e604dc5418264",
+  measurementId: "G-YJJNN3X4DH"
   };
 
   export const createUserProfileDocument = async (userAuth, additionalData) => {
