@@ -1,6 +1,6 @@
 import React from 'react'
 import './about-us.styles.scss';
-import Guruji from '../../assets/Guruji.jpeg'
+import Guruji from '../../assets/img/Guruji.jpeg'
 const AboutUs = ( ) => (
     <div className = 'about-us'>
       <h3 classname = 'about-us-heading'>About us</h3>
