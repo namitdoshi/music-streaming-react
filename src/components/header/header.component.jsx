@@ -33,8 +33,8 @@ const Header = ({ currentUser }) => {
           </Nav>
          
           {currentUser ? (
-          <div className='option' onClick={() => auth.signOut()}>
-            SIGN OUT
+          <div style={{color: '#fff', cursor: 'pointer'}} onClick={() => auth.signOut()}>
+            Sign Out
           </div>
       ) : (
         <NavLink href = "/signin">
