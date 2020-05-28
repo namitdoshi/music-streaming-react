@@ -3,7 +3,7 @@ import './about-us.styles.scss';
 
 import G3 from '../../assets/img/guruji3.jfif';
 const AboutUs = ( ) => (
-    <div className = 'about-us'>
+    <div className = 'about-us' id='about-us'>
       <h3 classname = 'about-us-heading'>About us</h3>
       <span className = 'about-us-span'>
          <p className = 'about-us-content'> 
