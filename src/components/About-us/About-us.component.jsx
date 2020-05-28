@@ -1,6 +1,7 @@
 import React from 'react'
 import './about-us.styles.scss';
-import Guruji from '../../assets/img/Guruji.jpeg'
+
+import G3 from '../../assets/img/guruji3.jfif';
 const AboutUs = ( ) => (
     <div className = 'about-us'>
       <h3 classname = 'about-us-heading'>About us</h3>
@@ -14,7 +15,7 @@ const AboutUs = ( ) => (
 
       <span className = 'our-inspiration'>
           <h3 className = 'our-inspiration-heading'> Our Inspiration</h3>
-          <img className = 'inspiration-image'src= {Guruji} alt="Inspiration"/>
+          <img className = 'inspiration-image'src= {G3} alt="Inspiration"/>
           <span>
               <p className = 'our-inspiration-content'>
                     Our beloved Guruji <b>Pandit Ulhas Rajhans</b> inspired us to create a platform to help musicians during the tough time faced by

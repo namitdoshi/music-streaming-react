@@ -2,7 +2,7 @@ import React from 'react'
 import CustomButton from '../custom-button/custom-button.component';
 import './sign-in.styles.scss';
 import FormInput from '../form-input/form-input.component';
-import google from '../../assets/img/google.png'
+import google from '../../assets/img/google3.png'
 import {auth,signInWithGoogle} from '../../Firebase/firebase.utils'
 
 class SignIn extends React.Component{
@@ -47,7 +47,7 @@ class SignIn extends React.Component{
 
                     <div className = 'buttons'>
                     < CustomButton type="submit">Sign in</CustomButton>
-                    < CustomButton onClick ={signInWithGoogle} isGoogleSignIn> <img src = {google}></img> </ CustomButton>
+                    < CustomButton onClick ={signInWithGoogle} className= 'isGoogleSignIn'> <img src = {google}></img> </ CustomButton>
                     </div>
                 </form>
             </div>
