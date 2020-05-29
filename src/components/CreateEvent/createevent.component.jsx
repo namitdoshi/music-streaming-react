@@ -22,15 +22,19 @@ class CreateEvent extends React.Component{
     handleSubmit = event => {
       event.preventDefault();
       const db = firebase.firestore();
-      const eventRef = db.collection('events').add({
-        id: this.state.id,
-        eventtitle: this.state.eventtitle,
-        date: this.state.date,
-        time: this.state.time,
-        artist: this.state.artist,
-        profile: this.state.profile,
-        eventurl: this.state.eventurl
-      }); 
+      if (this.state.id && this.state.eventtitle && this.state.date && this.state.time && this.state.artist && this.state.profile && this.state.eventtitle != '') {
+        const eventRef = db.collection('events').add({
+          id: this.state.id,
+          eventtitle: this.state.eventtitle,
+          date: this.state.date,
+          time: this.state.time,
+          artist: this.state.artist,
+          profile: this.state.profile,
+          eventurl: this.state.eventurl
+        }); 
+      } else {
+        alert('Fill all the fields')
+      }
 
       this.setState({
             id: '',
