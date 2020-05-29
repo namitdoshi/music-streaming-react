@@ -29,7 +29,7 @@ const Header = ({currentUser}) => {
               <NavLink href = "/#about-us" >About us</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>Events</NavLink>
+              <NavLink href = "/event">Events</NavLink>
             </NavItem>
           </Nav>
          
