@@ -5,7 +5,7 @@ import './home.styles.scss';
 import Homeimage from "../../assets/img/62236-removebg-preview.png";
 
 const Home = ( ) => (
-  <div className = 'home container-fluid'>
+  <div className = 'home'>
     <div className='row'>
       <div className='home-heading col-sm-12 col-md-6 col-xl-6'>
         <h1>Your own Home Concert!</h1>

@@ -5,7 +5,7 @@ import AboutUs from '../../components/About-us/About-us.component'
 import Inspiration from '../../components/inspiration-section/inspiration-section.component'
 
 const HomePage = () => (
-  <div className='homepage'>
+  <div className='container-fluid'>
     <Home/>
     <AboutUs/>
     <Inspiration/>
