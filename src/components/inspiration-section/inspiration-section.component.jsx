@@ -6,7 +6,7 @@ import guruji from '../../assets/img/IMG-20200528-WA0011.jpg'
 const Inspiration = ( ) => (
   <div className = 'inspiration' id='inspiration'>
     <div className='container-fluid'>
-    <h1 classname = 'inspiration-heading'>Our Inspiration</h1>
+    <h1 className = 'inspiration-heading'>Our Inspiration</h1>
       <div className='row'>
         <div className='col-12 col-sm-12 col-md-12 col-xl-12'>
           <img src= {guruji} alt="image of Pandit Ulhas Rajhans"/>
