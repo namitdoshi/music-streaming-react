@@ -1,0 +1,28 @@
+.inspiration {
+  margin-top: 2.5vh;
+  text-align: center;
+  height: 100vh;
+  
+  h1 {
+    margin-bottom: 14vh;
+  }
+
+  .guruji {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 23vw;
+    }
+  }
+
+  .inspiration-text {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+}
