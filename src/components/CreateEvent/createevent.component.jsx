@@ -26,10 +26,10 @@ class CreateEvent extends React.Component{
         id: this.state.id,
         eventtitle: this.state.eventtitle,
         date: this.state.date,
-        time: '',
-        artist: '',
-        profile: '',
-        eventurl: ''
+        time: this.state.time,
+        artist: this.state.artist,
+        profile: this.state.profile,
+        eventurl: this.state.eventurl
       }); 
 
       this.setState({
@@ -55,7 +55,7 @@ class CreateEvent extends React.Component{
   render(){
     return(
      <div className = 'createevent'>
-       <form onSubmit = {this.handleSubmit}>
+       
          <FormInput
            type = 'text'
            name = 'eventtitle'
@@ -88,6 +88,14 @@ class CreateEvent extends React.Component{
            onChange = {this.handleChange} 
            required
          />
+         <FormInput 
+           type = 'text'
+           name = 'profile' 
+           value = {this.state.profile} 
+           label = 'Profile' 
+           onChange = {this.handleChange} 
+           required
+         />
          <FormInput
            type = 'text'
            name = 'eventurl'
@@ -104,7 +112,7 @@ class CreateEvent extends React.Component{
            onChange = {this.handleChange} 
            required
          />
-      </form>
+     
     <div className = 'button'>
         <CustomButton type = 'submit' onClick = {this.handleSubmit}>Submit</CustomButton>
     </div>
