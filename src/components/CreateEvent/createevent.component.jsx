@@ -58,8 +58,10 @@ class CreateEvent extends React.Component{
    
   render(){
     return(
-     <div className = 'createevent'>
-       
+     <div className = 'createevent'>      
+      
+      <h1 style={{margin: '5vh 0'}}>Create Event</h1>
+
       <FormInput
         type = 'text'
         name = 'eventtitle'
