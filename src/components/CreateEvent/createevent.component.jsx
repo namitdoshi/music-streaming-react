@@ -76,7 +76,6 @@ class CreateEvent extends React.Component{
            type = 'date'
            name = 'date' 
            value = {this.state.date} 
-           label = 'Date'
            onChange = {this.handleChange} 
            required
            />
@@ -84,7 +83,6 @@ class CreateEvent extends React.Component{
            type = 'time'
            name = 'time' 
            value = {this.state.time} 
-           label = 'Event Time' 
            onChange = {this.handleChange} 
            required
          />
