@@ -73,7 +73,7 @@ class CreateEvent extends React.Component{
            required
          />
          <FormInput 
-           type = 'text'
+           type = 'date'
            name = 'date' 
            value = {this.state.date} 
            label = 'Date'
@@ -81,7 +81,7 @@ class CreateEvent extends React.Component{
            required
            />
          <FormInput 
-           type = 'text'
+           type = 'time'
            name = 'time' 
            value = {this.state.time} 
            label = 'Event Time' 
