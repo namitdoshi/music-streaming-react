@@ -60,61 +60,61 @@ class CreateEvent extends React.Component{
     return(
      <div className = 'createevent'>
        
-         <FormInput
-           type = 'text'
-           name = 'eventtitle'
-           value = {this.state.eventtitle} 
-           label = 'Event Title' 
-           onChange = {this.handleChange}
-           required
-         />
-         <FormInput 
-           type= 'text'
-           name = 'artist' 
-           value = {this.state.artist} 
-           label = 'Artist Name'
-           onChange = {this.handleChange}
-           required
-         />
-         <FormInput 
-           type = 'date'
-           name = 'date' 
-           value = {this.state.date} 
-           onChange = {this.handleChange} 
-           required
-           />
-         <FormInput 
-           type = 'time'
-           name = 'time' 
-           value = {this.state.time} 
-           onChange = {this.handleChange} 
-           required
-         />
-         <FormInput 
-           type = 'text'
-           name = 'profile' 
-           value = {this.state.profile} 
-           label = 'Profile' 
-           onChange = {this.handleChange} 
-           required
-         />
-         <FormInput
-           type = 'text'
-           name = 'eventurl'
-           value = {this.state.eventurl} 
-           label = 'Youtube Url'
-           onChange = {this.handleChange} 
-           required
-         />
-         <FormInput
-           type = 'text'
-           name = 'id' 
-           value = {this.state.id} 
-           label = 'Event Id'
-           onChange = {this.handleChange} 
-           required
-         />
-     
+      <FormInput
+        type = 'text'
+        name = 'eventtitle'
+        value = {this.state.eventtitle} 
+        label = 'Event Title' 
+        onChange = {this.handleChange}
+        required
+      />
+      <FormInput 
+        type= 'text'
+        name = 'artist' 
+        value = {this.state.artist} 
+        label = 'Artist Name'
+        onChange = {this.handleChange}
+        required
+      />
+      <FormInput 
+        type = 'date'
+        name = 'date' 
+        value = {this.state.date} 
+        onChange = {this.handleChange} 
+        required
+        />
+      <FormInput 
+        type = 'time'
+        name = 'time' 
+        value = {this.state.time} 
+        onChange = {this.handleChange} 
+        required
+      />
+      <FormInput 
+        type = 'text'
+        name = 'profile' 
+        value = {this.state.profile} 
+        label = 'Profile' 
+        onChange = {this.handleChange} 
+        required
+      />
+      <FormInput
+        type = 'text'
+        name = 'eventurl'
+        value = {this.state.eventurl} 
+        label = 'Youtube Url'
+        onChange = {this.handleChange} 
+        required
+      />
+      <FormInput
+        type = 'text'
+        name = 'id' 
+        value = {this.state.id} 
+        label = 'Event Id'
+        onChange = {this.handleChange} 
+        required
+      />
+  
     <div className = 'button'>
         <CustomButton type = 'submit' onClick = {this.handleSubmit}>Submit</CustomButton>
     </div>
