@@ -3,6 +3,7 @@ import {
   Card, CardImg, CardText, CardBody, CardLink,
   CardTitle, CardSubtitle,Button
 } from 'reactstrap';
+import {image} from '../../assets/img/guruji3.jpeg'
 const EventTile = () => {
   return (
     <div>
