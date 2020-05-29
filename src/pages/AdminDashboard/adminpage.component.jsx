@@ -3,13 +3,13 @@ import CreateEvent from '../../components/CreateEvent/createevent.component'
 
 class Admin extends React.Component{
    
-    render(){
-        return(
-        <div>
+  render(){
+    return(
+      <div className='container'>
         <CreateEvent/>
-    </div>
-        )
-    }
+      </div>
+      )
+  }
     
 }
 export default Admin;
