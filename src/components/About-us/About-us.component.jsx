@@ -13,7 +13,7 @@ const AboutUs = ( ) => (
         </div>
         <div className='col-12 col-sm-12 col-md-6 col-xl-6 about-us-text'>
           <h2>We are a team of musicians and software developers aiming to create a digital solution for</h2>
-          <h2>everyday problems.</h2>
+          <h2>live concerts.</h2>
         </div>
       </div>
     </div>

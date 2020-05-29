@@ -9,7 +9,7 @@ import SignInAndSignUpPage from './pages/sign-in-and-signup/sign-in-and-sign-up.
 import './App.css';
 import HomePage from './pages/home-page/home-page.component';
 import EventDashboard from './pages/Event-dashboard/eventdashboard.component';
-
+import Admin from './pages/AdminDashboard/adminpage.component';
 
 import { auth, createUserProfileDocument } from './Firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.action';
@@ -47,6 +47,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/event' component={EventDashboard} />
+          <Route path='/admins' component= {Admin} />
           <Route
             exact
             path='/signin'
