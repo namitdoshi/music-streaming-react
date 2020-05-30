@@ -4,18 +4,19 @@ import {
   CardTitle, CardSubtitle,Button
 } from 'reactstrap';
 
+import './event-tile.styles.scss';
+
 const EventTile = ({ eventTitle, artitstName, eventDate, eventTime }) => {
   return (
-    <div>
-      <Card>
+    <div >
+      <Card className='event-card'>
         <CardBody>
-          <CardTitle>{eventTitle}</CardTitle>
-          <CardSubtitle>{artitstName}</CardSubtitle>
-        </CardBody>
+          <CardTitle className='event-title'>{eventTitle}</CardTitle>
+          <CardSubtitle className='artist-name'>Artist Name: {artitstName}</CardSubtitle>
         
-        <CardBody>
-          <CardText></CardText>
-          <Button>Click </Button>
+          <CardText>Event Date: {eventDate}</CardText>
+          <CardText>Event Time: {eventTime}</CardText>
+          <Button>Learn More </Button>
           <Button>Artist Profile</Button>
         </CardBody>
       </Card>
