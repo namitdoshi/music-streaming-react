@@ -41,7 +41,7 @@ class EventDashboard extends React.Component {
        this.state.events.map ( event => {
          return (
             <div>
-              <p>{event.eventtitle}</p>
+              <EventTile eventTitle={event.eventtitle} artitstName={event.artist} eventDate={event.date} eventTime={event.time}/>
             </div>
          )
        }) }
