@@ -40,10 +40,23 @@ const config = {
     return userRef;
   } ;
   
- 
+  
+  
 firebase.initializeApp(config);
 
+    const convertCollectionToMap = (collections) => {
+  const transformedCollection = collections.docs.map(doc => {
+    const {eventtitle,items} = doc.data();
+  
+    return{
+        id: doc.id,
+        eventtitle,
+        items
+    }
+      });
 
+      console.log(transformedCollection)
+    }
 
 export const auth = firebase.auth();
 export const firestore =firebase.firestore();
