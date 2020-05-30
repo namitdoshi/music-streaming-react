@@ -1,9 +1,10 @@
 import React from 'react';
 import {
   Card, CardImg, CardText, CardBody, CardLink,
-  CardTitle, CardSubtitle,Button
+  CardTitle, CardSubtitle
 } from 'reactstrap';
 
+import CustomButton from '../custom-button/custom-button.component'
 import './event-tile.styles.scss';
 
 const EventTile = ({ eventTitle, artitstName, eventDate, eventTime }) => {
@@ -16,8 +17,10 @@ const EventTile = ({ eventTitle, artitstName, eventDate, eventTime }) => {
         
           <CardText>Event Date: {eventDate}</CardText>
           <CardText>Event Time: {eventTime}</CardText>
-          <Button>Learn More </Button>
-          <Button>Artist Profile</Button>
+          <div className='event-btn'>
+            <CustomButton style={{marginRight:'.5rem'}}>Learn More </CustomButton>
+            <CustomButton>Artist Profile</CustomButton>
+          </div>
         </CardBody>
       </Card>
     </div>
