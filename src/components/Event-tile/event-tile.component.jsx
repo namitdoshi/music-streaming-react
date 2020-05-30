@@ -3,19 +3,20 @@ import {
   Card, CardImg, CardText, CardBody, CardLink,
   CardTitle, CardSubtitle,Button
 } from 'reactstrap';
-import {image} from '../../assets/img/guruji3.jpeg'
+
+import './event-tile.styles.scss';
+
 const EventTile = ({ eventTitle, artitstName, eventDate, eventTime }) => {
   return (
-    <div>
-      <Card>
+    <div >
+      <Card className='event-card'>
         <CardBody>
-          <CardTitle>{eventTitle}</CardTitle>
-          <CardSubtitle>{artitstName}</CardSubtitle>
-        </CardBody>
-        <img width='100%'  alt="Card image cap" />
-        <CardBody>
-          <CardText></CardText>
-          <Button>Click </Button>
+          <CardTitle className='event-title'>{eventTitle}</CardTitle>
+          <CardSubtitle className='artist-name'>Artist Name: {artitstName}</CardSubtitle>
+        {/* <img width='100%'  alt="Card image cap" /> */}
+          <CardText>Event Date: {eventDate}</CardText>
+          <CardText>Event Time: {eventTime}</CardText>
+          <Button>Learn More </Button>
           <Button>Artist Profile</Button>
         </CardBody>
       </Card>
