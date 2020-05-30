@@ -4,7 +4,7 @@ import EventTile from '../../components/Event-tile/event-tile.component'
 import './eventdashboard.styles.scss';
 import firebase from 'firebase';
 
-import {firestore} from '../../Firebase/firebase.utils'
+
 
 
 class EventDashboard extends React.Component {
@@ -40,7 +40,7 @@ class EventDashboard extends React.Component {
       {  this.state.events &&
        this.state.events.map ( event => {
          return (
-            <div>
+            <div key = {event.id}>
               <p>{event.eventtitle}</p>
             </div>
          )
