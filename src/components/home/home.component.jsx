@@ -11,7 +11,7 @@ const Home = ( ) => (
         <h1>Your own Home Concert!</h1>
       </div>
       <div className='home-img col-sm-12 col-md-6 col-xl-6'>
-        <img src= {Homeimage} alt="man with guitar"/>
+       <img src= {Homeimage} alt="man with guitar"/>
       </div>
     </div>
   </div>
