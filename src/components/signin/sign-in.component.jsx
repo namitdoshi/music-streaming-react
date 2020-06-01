@@ -5,6 +5,8 @@ import FormInput from '../form-input/form-input.component';
 import google from '../../assets/img/google3.png'
 import {auth,signInWithGoogle} from '../../Firebase/firebase.utils'
 
+import {Link} from 'react-router-dom'
+
 class SignIn extends React.Component{
   constructor(props){
     super(props) ;
@@ -23,9 +25,32 @@ class SignIn extends React.Component{
       this.setState({email: '' , password :''})
     }
     catch (error){
-      console.log(error);
+      alert('problem in signing in')
     }
       
+  }
+
+  handleReset = event => {
+    event.preventDefault();
+
+
+    if(this.state.email === ''){
+      alert('Please enter email')
+    }
+
+    else{
+     auth.sendPasswordResetEmail(this.state.email).then(function() {
+        // Email sent.
+        alert('Please check you email and verify')
+        
+      }).catch(function(error) {
+        // An error happened.
+        alert('error')
+      });
+
+      
+    }
+
   }
 
   handleChange = event =>{
@@ -44,8 +69,9 @@ class SignIn extends React.Component{
         <form onSubmit = {this.handleSubmit}>
           <FormInput name = 'email' value = {this.state.email} label = 'email' handleChange = {this.handleChange} type="email" required/>
           
-          <FormInput name = 'password' value = {this.state.password} type="password"  label = 'password' handleChange = {this.handleChange} required/>
-          
+          <FormInput name = 'password' value = {this.state.password} type="password"  label = 'password' handleChange = {this.handleChange}/>
+          <a onClick = {this.handleReset} href= "#">Click here to reset password</a>
+
           <div className = 'buttons'>
           < CustomButton type="submit">Sign in</CustomButton>
           < CustomButton onClick ={signInWithGoogle} className= 'isGoogleSignIn'> <img src = {google} alt = " Sign in With Google"></img> </ CustomButton>
