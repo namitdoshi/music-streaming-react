@@ -2,6 +2,7 @@ import React from 'react';
 
 import FormInput from '../../components/form-input/form-input.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
+import storage from '../../Firebase/firebase.utils';
 
 import firebase from 'firebase';
 
@@ -16,8 +17,12 @@ class CreateEvent extends React.Component{
             time: '',
             artist: '',
             profile: '',
-            eventurl: ''
+            eventurl: '',
+            artistImage: null
         }
+
+        // this.handleImage = this.handleImage.bind(this)
+
     }
     handleSubmit = event => {
       event.preventDefault();
@@ -31,7 +36,7 @@ class CreateEvent extends React.Component{
           artist: this.state.artist,
           profile: this.state.profile,
           eventurl: this.state.eventurl
-        }); 
+        });
       } else {
         alert('Fill all the fields')
       }
@@ -55,7 +60,38 @@ class CreateEvent extends React.Component{
         console.log(this.state)
     }
 
-   
+    handleImage = event => {
+      if (event.target.files[0]) {
+        const artistImage = event.target.files[0]
+        this.state.artistImage = artistImage
+        console.log(this.state.artistImage)
+      }
+    }
+
+    uploadImage = event => {
+      var storageRef = firebase.storage().ref()
+      const artistImage = this.state.artistImage
+      const uploadTask = storageRef(`images/${artistImage.name}`).put(artistImage)
+      // const uploadTask = storage.ref(`images/${artistImage.name}`).put(artistImage)
+
+      uploadTask.on('state_changed', 
+        function (snapshot) {
+
+        },
+        function (error) {
+          console.log(error)
+        },
+        function () {
+          storageRef('images').child(artistImage.name).getDownloadURL().then(url => {
+            console.log()
+          })
+          // storage.ref('images').child(artistImage.name).getDownloadURL().then(url => {
+          //   console.log()
+          // })
+        }
+      )
+    }
+
   render(){
     return(
      <div className = 'createevent'>      
@@ -116,9 +152,20 @@ class CreateEvent extends React.Component{
         onChange = {this.handleChange} 
         required
       />
+      <input
+        className = 'form-control'
+        type = 'file'
+        name = 'artist-image' 
+        value = {this.state.artistImage} 
+        label = 'Artist Image'
+        onChange = {this.handleImage} 
+        style={{marginBottom: '1.5rem'}}
+        required
+      />
   
     <div className = 'button'>
-        <CustomButton type = 'submit' onClick = {this.handleSubmit}>Submit</CustomButton>
+      <CustomButton type = 'submit' onClick = {this.uploadImage}>Upload</CustomButton>
+      <CustomButton type = 'submit' onClick = {this.handleSubmit}>Submit</CustomButton>
     </div>
   </div>
     )
