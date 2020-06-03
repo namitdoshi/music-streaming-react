@@ -14,7 +14,8 @@ class EventDashboard extends React.Component {
     super();
     
    this.state = {
-      events: null
+      events: null,
+      
 
     }     
    }
@@ -50,7 +51,9 @@ class EventDashboard extends React.Component {
        this.state.events.map ( event => {
          return (
             <div key = {event.id}>
-              <EventTile eventTitle={event.eventtitle} artitstName={event.artist} eventDate={event.date} eventTime={event.time}/>
+               
+              <EventTile eventTitle={event.eventtitle} artitstName={event.artist} eventDate={event.date} eventTime={event.time} artistImageURL = {event.artistImageURL}/>
+
               <CustomButton type = 'submit' onClick = {this.handleClick}>Submit </CustomButton>
             </div>
          )

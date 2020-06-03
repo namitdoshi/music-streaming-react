@@ -44,26 +44,8 @@ class CreateEvent extends React.Component{
     }
 
     this.setState({
-<<<<<<< HEAD
-          id: '',
-          eventtitle: '',
-          date: '',
-          time: '',
-          artist: '',
-          profile: '',
-          eventurl: '',
-          linkUrl:''
-
-=======
-        id: '',
-        eventtitle: '',
-        date: '',
-        time: '',
-        artist: '',
-        profile: '',
-        eventurl: '',
+       
         artistImageURL: ''
->>>>>>> 038ea8f5bcd4da0450e4553d160664e090899695
     })
     }
     
@@ -95,26 +77,19 @@ class CreateEvent extends React.Component{
 
     uploadTask.on('state_changed', 
       function (snapshot) {
-
+        console.log(snapshot)
       },
       function (error) {
         console.log(error)
       },
       function () {
         storageRef.child(`images/${artistImage.name}`).getDownloadURL().then(url => {
-          tempURL = url
-          console.log(tempURL)
-          console.log(123131)
-          if (tempURL) {
-            console.log(123)
-            console.log(tempURL)
-            console.log(typeof(this.state.artistImageURL))
-            this.state.artistImageURL = tempURL
-            console.log(this.state)
+          this.setstate({artistImageURL: url})
+          console.log(this.state)
           }
           // this.setState({artistImageURL: tempURL})
           
-        }).catch(function(error) {
+        ).catch(function(error) {
 
           // A full list of error codes is available at
           // https://firebase.google.com/docs/storage/web/handle-errors

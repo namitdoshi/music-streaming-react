@@ -7,20 +7,21 @@ import {
 import CustomButton from '../custom-button/custom-button.component'
 import './event-tile.styles.scss';
 import EventInfo from '../Event/eventInfo.component'
-const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, eventUrl,profile }) => 
+const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, eventUrl,profile,artistImageURL}) => 
   
  
    ( <div >
       <Card className='event-card'>
         <CardBody>
           <CardTitle className='event-title'>{eventTitle}</CardTitle>
+          
           <CardSubtitle className='artist-name'>Artist Name: {artitstName}</CardSubtitle>
-        
+          </CardBody>
+          <img width="100%" src= {artistImageURL} alt="23" />
+          <CardBody>
           <CardText>Event Date: {eventDate}</CardText>
           <CardText>Event Time: {eventTime}</CardText>
-          <div className='event-btn'>
-            
-          </div>
+          
         </CardBody>
       </Card>
     </div>)
