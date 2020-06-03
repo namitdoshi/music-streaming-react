@@ -9,19 +9,19 @@ import firebase from 'firebase';
 
 class CreateEvent extends React.Component{
   constructor(){
-      super();
-      this.state = {
-          id: '',
-          eventtitle: '',
-          date: '',
-          time: '',
-          artist: '',
-          profile: '',
-          eventurl: '',
-          artistImage: null,
-          artistImageURL: ''
-          
-      }
+    super();
+    this.state = {
+      id: '',
+      eventtitle: '',
+      date: '',
+      time: '',
+      artist: '',
+      profile: '',
+      eventurl: '',
+      artistImage: null,
+      artistImageURL: ''
+        
+    }
       this.uploadImage = this.uploadImage.bind(this)
   }
 
@@ -50,24 +50,24 @@ class CreateEvent extends React.Component{
     }
 
     this.setState({
-        id: '',
-        eventtitle: '',
-        date: '',
-        time: '',
-        artist: '',
-        profile: '',
-        eventurl: '',
-        artistImageURL: ''
+      id: '',
+      eventtitle: '',
+      date: '',
+      time: '',
+      artist: '',
+      profile: '',
+      eventurl: '',
+      artistImageURL: ''
     })
     }
     
 
 
   handleChange = event => {
-      const {value,name} = event.target
+    const {value,name} = event.target
 
-      this.setState({ [name]: value })
-      console.log(this.state)
+    this.setState({ [name]: value })
+    console.log(this.state)
   }
 
   handleImage = event => {
