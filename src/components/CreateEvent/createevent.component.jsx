@@ -1,28 +1,35 @@
 import React from 'react';
+import firebase from 'firebase';
 
 import FormInput from '../../components/form-input/form-input.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import storage from '../../Firebase/firebase.utils';
+import './createevent.styles.scss'
 
-import firebase from 'firebase';
 
 
 class CreateEvent extends React.Component{
   constructor(){
-      super();
-      this.state = {
-          id: '',
-          eventtitle: '',
-          date: '',
-          time: '',
-          artist: '',
-          profile: '',
-          eventurl: '',
-          artistImage: null,
-          artistImageURL: ''
-          
-      }
+    super();
+    this.state = {
+      id: '',
+      eventtitle: '',
+      date: '',
+      time: '',
+      artist: '',
+      profile: '',
+      eventurl: '',
+      artistImage: null,
+      artistImageURL: ''
+        
+    }
       this.uploadImage = this.uploadImage.bind(this)
+  }
+
+  handleImageURLstate = url => {
+    console.log(this.state)
+    console.log('namit')
+    console.log(url)  
   }
   
   handleSubmit = event => {
@@ -44,17 +51,24 @@ class CreateEvent extends React.Component{
     }
 
     this.setState({
-       
-        artistImageURL: ''
+      id: '',
+      eventtitle: '',
+      date: '',
+      time: '',
+      artist: '',
+      profile: '',
+      eventurl: '',
+      artistImageURL: ''
     })
     }
     
 
-  handleChange = event => {
-      const {value,name} = event.target
 
-      this.setState({ [name]: value })
-      console.log(this.state)
+  handleChange = event => {
+    const {value,name} = event.target
+
+    this.setState({ [name]: value })
+    console.log(this.state)
   }
 
   handleImage = event => {
@@ -66,12 +80,9 @@ class CreateEvent extends React.Component{
   }
   
   uploadImage = event => {
-    // this.state.artistImageURL = 'asdasdas'
-    // console.log(this.state.artistImageURL)
     var storageRef = firebase.storage().ref()
     const artistImage = this.state.artistImage
     const uploadTask = storageRef.child(`images/${artistImage.name}`).put(artistImage)
-    // const uploadTask = storage.ref(`images/${artistImage.name}`).put(artistImage)
 
     var tempURL = ''
 
@@ -83,16 +94,11 @@ class CreateEvent extends React.Component{
         console.log(error)
       },
       function () {
-        storageRef.child(`images/${artistImage.name}`).getDownloadURL().then(url => {
-          this.setstate({artistImageURL: url})
-          console.log(this.state)
-          }
-          // this.setState({artistImageURL: tempURL})
+        storageRef.child(`images/${artistImage.name}`).getDownloadURL().then( url => {
+          console.log(url)
           
-        ).catch(function(error) {
+        }).catch(function(error) {
 
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
           switch (error.code) {
             case 'storage/object-not-found':
               // File doesn't exist
@@ -118,6 +124,19 @@ class CreateEvent extends React.Component{
       }
     )
     }
+
+
+    // Get URL
+    getURL = event => {
+      event.preventDefault()
+      var storageRef = firebase.storage().ref()
+      const artistImage = this.state.artistImage
+      storageRef.child(`images/${artistImage.name}`).getDownloadURL().then(url => {
+        this.state.artistImageURL = url
+        console.log(this.state)
+      })
+    }
+    
   
 
   render(){
@@ -200,6 +219,7 @@ class CreateEvent extends React.Component{
   
     <div className = 'button'>
       <CustomButton type = 'submit' onClick = {this.uploadImage}>Upload</CustomButton>
+      <CustomButton type = 'submit' onClick = {this.getURL}>Get URL</CustomButton>
       <CustomButton type = 'submit' onClick = {this.handleSubmit}>Submit</CustomButton>
     </div>
   </div>
