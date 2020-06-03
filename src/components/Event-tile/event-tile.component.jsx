@@ -17,7 +17,7 @@ const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, eventUrl,pro
           
           <CardSubtitle className='artist-name'>Artist Name: {artitstName}</CardSubtitle>
           </CardBody>
-          <img width="100%" src= {artistImageURL} alt="23" />
+          <img src= {artistImageURL} alt="artist image" className='artist-image'/>
           <CardBody>
           <CardText>Event Date: {eventDate}</CardText>
           <CardText>Event Time: {eventTime}</CardText>
