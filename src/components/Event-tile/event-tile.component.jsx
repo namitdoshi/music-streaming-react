@@ -13,15 +13,19 @@ const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, eventUrl,pro
    ( <div >
       <Card className='event-card'>
         <CardBody>
-          <CardTitle className='event-title'>{eventTitle}</CardTitle>
-          
-          <CardSubtitle className='artist-name'>Artist Name: {artitstName}</CardSubtitle>
-          </CardBody>
-          <img src= {artistImageURL} alt="artist image" className='artist-image'/>
-          <CardBody>
-          <CardText>Event Date: {eventDate}</CardText>
-          <CardText>Event Time: {eventTime}</CardText>
-          
+          <div className='row'>
+            <div className='col-xs-12 col-sm-12 col-md-6 col-lg-6'>
+              <img src= {artistImageURL} alt="artist image" className='artist-image'/>
+            </div>
+            <div className='col-xs-12 col-sm-12 col-md-6 col-lg-6'>
+              <CardTitle className='event-title'>{eventTitle}</CardTitle>
+              <CardSubtitle className='artist-name'>Artist Name: {artitstName}</CardSubtitle>
+              <CardBody>
+              <CardText>Event Date: {eventDate}</CardText>
+              <CardText>Event Time: {eventTime}</CardText>
+              </CardBody>
+            </div>
+          </div>
         </CardBody>
       </Card>
     </div>)
