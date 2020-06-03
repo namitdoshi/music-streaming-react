@@ -18,8 +18,11 @@ class CreateEvent extends React.Component{
           artist: '',
           profile: '',
           eventurl: '',
-          artistImage: null
+          artistImage: null,
+          artistImageURL: ''
+          
       }
+      this.uploadImage = this.uploadImage.bind(this)
   }
   
   handleSubmit = event => {
@@ -33,13 +36,15 @@ class CreateEvent extends React.Component{
         time: this.state.time,
         artist: this.state.artist,
         profile: this.state.profile,
-        eventurl: this.state.eventurl
+        eventurl: this.state.eventurl,
+        artistImageURL: this.state.artistImageURL
       });
     } else {
       alert('Fill all the fields')
     }
 
     this.setState({
+<<<<<<< HEAD
           id: '',
           eventtitle: '',
           date: '',
@@ -49,6 +54,16 @@ class CreateEvent extends React.Component{
           eventurl: '',
           linkUrl:''
 
+=======
+        id: '',
+        eventtitle: '',
+        date: '',
+        time: '',
+        artist: '',
+        profile: '',
+        eventurl: '',
+        artistImageURL: ''
+>>>>>>> 038ea8f5bcd4da0450e4553d160664e090899695
     })
     }
     
@@ -68,7 +83,67 @@ class CreateEvent extends React.Component{
     }
   }
   
- 
+  uploadImage = event => {
+    // this.state.artistImageURL = 'asdasdas'
+    // console.log(this.state.artistImageURL)
+    var storageRef = firebase.storage().ref()
+    const artistImage = this.state.artistImage
+    const uploadTask = storageRef.child(`images/${artistImage.name}`).put(artistImage)
+    // const uploadTask = storage.ref(`images/${artistImage.name}`).put(artistImage)
+
+    var tempURL = ''
+
+    uploadTask.on('state_changed', 
+      function (snapshot) {
+
+      },
+      function (error) {
+        console.log(error)
+      },
+      function () {
+        storageRef.child(`images/${artistImage.name}`).getDownloadURL().then(url => {
+          tempURL = url
+          console.log(tempURL)
+          console.log(123131)
+          if (tempURL) {
+            console.log(123)
+            console.log(tempURL)
+            console.log(typeof(this.state.artistImageURL))
+            this.state.artistImageURL = tempURL
+            console.log(this.state)
+          }
+          // this.setState({artistImageURL: tempURL})
+          
+        }).catch(function(error) {
+
+          // A full list of error codes is available at
+          // https://firebase.google.com/docs/storage/web/handle-errors
+          switch (error.code) {
+            case 'storage/object-not-found':
+              // File doesn't exist
+              console.log('storage/object-not-found')
+              break;
+        
+            case 'storage/unauthorized':
+              // User doesn't have permission to access the object
+              console.log('storage/unauthorized')
+              break;
+        
+            case 'storage/canceled':
+              // User canceled the upload
+              console.log('storage/canceled')
+              break;
+        
+            case 'storage/unknown':
+              // Unknown error occurred, inspect the server response
+              console.log('storage/unknown')
+              break;
+          }
+        })
+      }
+    )
+    }
+  
 
   render(){
     return(
