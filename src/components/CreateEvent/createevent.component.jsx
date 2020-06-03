@@ -20,10 +20,8 @@ class CreateEvent extends React.Component{
             eventurl: '',
             artistImage: null
         }
-
-        // this.handleImage = this.handleImage.bind(this)
-
     }
+    
     handleSubmit = event => {
       event.preventDefault();
       const db = firebase.firestore();
@@ -67,7 +65,7 @@ class CreateEvent extends React.Component{
         console.log(this.state.artistImage)
       }
     }
-
+    
     uploadImage = event => {
       var storageRef = firebase.storage().ref()
       const artistImage = this.state.artistImage
@@ -82,12 +80,34 @@ class CreateEvent extends React.Component{
           console.log(error)
         },
         function () {
-          storageRef.child(artistImage.name).getDownloadURL().then(url => {
-            console.log()
+          storageRef.child(`images/${artistImage.name}`).getDownloadURL().then(url => {
+            console.log(url)
+          }).catch(function(error) {
+
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+              case 'storage/object-not-found':
+                // File doesn't exist
+                console.log('storage/object-not-found')
+                break;
+          
+              case 'storage/unauthorized':
+                // User doesn't have permission to access the object
+                console.log('storage/unauthorized')
+                break;
+          
+              case 'storage/canceled':
+                // User canceled the upload
+                console.log('storage/canceled')
+                break;
+          
+              case 'storage/unknown':
+                // Unknown error occurred, inspect the server response
+                console.log('storage/unknown')
+                break;
+            }
           })
-          // storage.ref('images').child(artistImage.name).getDownloadURL().then(url => {
-          //   console.log()
-          // })
         }
       )
     }
