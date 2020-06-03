@@ -71,7 +71,7 @@ class CreateEvent extends React.Component{
     uploadImage = event => {
       var storageRef = firebase.storage().ref()
       const artistImage = this.state.artistImage
-      const uploadTask = storageRef(`images/${artistImage.name}`).put(artistImage)
+      const uploadTask = storageRef.child(`images/${artistImage.name}`).put(artistImage)
       // const uploadTask = storage.ref(`images/${artistImage.name}`).put(artistImage)
 
       uploadTask.on('state_changed', 
@@ -82,7 +82,7 @@ class CreateEvent extends React.Component{
           console.log(error)
         },
         function () {
-          storageRef('images').child(artistImage.name).getDownloadURL().then(url => {
+          storageRef.child(artistImage.name).getDownloadURL().then(url => {
             console.log()
           })
           // storage.ref('images').child(artistImage.name).getDownloadURL().then(url => {
