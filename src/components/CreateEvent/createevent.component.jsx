@@ -1,10 +1,11 @@
 import React from 'react';
+import firebase from 'firebase';
 
 import FormInput from '../../components/form-input/form-input.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import storage from '../../Firebase/firebase.utils';
+import './createevent.styles.scss'
 
-import firebase from 'firebase';
 
 
 class CreateEvent extends React.Component{
