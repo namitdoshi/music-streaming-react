@@ -18,8 +18,11 @@ class CreateEvent extends React.Component{
           artist: '',
           profile: '',
           eventurl: '',
-          artistImage: null
+          artistImage: null,
+          artistImageURL: ''
+          
       }
+      this.uploadImage = this.uploadImage.bind(this)
   }
   
   handleSubmit = event => {
@@ -33,20 +36,22 @@ class CreateEvent extends React.Component{
         time: this.state.time,
         artist: this.state.artist,
         profile: this.state.profile,
-        eventurl: this.state.eventurl
+        eventurl: this.state.eventurl,
+        artistImageURL: this.state.artistImageURL
       });
     } else {
       alert('Fill all the fields')
     }
 
     this.setState({
-          id: '',
-          eventtitle: '',
-          date: '',
-          time: '',
-          artist: '',
-          profile: '',
-          eventurl: ''
+        id: '',
+        eventtitle: '',
+        date: '',
+        time: '',
+        artist: '',
+        profile: '',
+        eventurl: '',
+        artistImageURL: ''
     })
     }
     
@@ -67,10 +72,14 @@ class CreateEvent extends React.Component{
   }
   
   uploadImage = event => {
+    // this.state.artistImageURL = 'asdasdas'
+    // console.log(this.state.artistImageURL)
     var storageRef = firebase.storage().ref()
     const artistImage = this.state.artistImage
     const uploadTask = storageRef.child(`images/${artistImage.name}`).put(artistImage)
     // const uploadTask = storage.ref(`images/${artistImage.name}`).put(artistImage)
+
+    var tempURL = ''
 
     uploadTask.on('state_changed', 
       function (snapshot) {
@@ -81,7 +90,18 @@ class CreateEvent extends React.Component{
       },
       function () {
         storageRef.child(`images/${artistImage.name}`).getDownloadURL().then(url => {
-          console.log(url)
+          tempURL = url
+          console.log(tempURL)
+          console.log(123131)
+          if (tempURL) {
+            console.log(123)
+            console.log(tempURL)
+            console.log(typeof(this.state.artistImageURL))
+            this.state.artistImageURL = tempURL
+            console.log(this.state)
+          }
+          // this.setState({artistImageURL: tempURL})
+          
         }).catch(function(error) {
 
           // A full list of error codes is available at
@@ -110,7 +130,8 @@ class CreateEvent extends React.Component{
         })
       }
     )
-  }
+    }
+  
 
   render(){
     return(
