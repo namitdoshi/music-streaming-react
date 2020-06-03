@@ -23,7 +23,18 @@ class CreateEvent extends React.Component{
           
       }
       this.uploadImage = this.uploadImage.bind(this)
+      // var tempURL = ''
   }
+
+  handleImageURLstate = url => {
+    console.log(this.state)
+    console.log('namit')
+    console.log(url)  
+  }
+  // var handleImageURLstate (url) {
+  //   console.log(this.state)
+  //   console.log(url)
+  // }
   
   handleSubmit = event => {
     event.preventDefault();
@@ -55,6 +66,7 @@ class CreateEvent extends React.Component{
     })
     }
     
+
 
   handleChange = event => {
       const {value,name} = event.target
@@ -89,48 +101,67 @@ class CreateEvent extends React.Component{
         console.log(error)
       },
       function () {
-        storageRef.child(`images/${artistImage.name}`).getDownloadURL().then(url => {
-          tempURL = url
-          console.log(tempURL)
-          console.log(123131)
-          if (tempURL) {
-            console.log(123)
-            console.log(tempURL)
-            console.log(typeof(this.state.artistImageURL))
-            this.state.artistImageURL = tempURL
-            console.log(this.state)
-          }
-          // this.setState({artistImageURL: tempURL})
+        // storageRef.child(`images/${artistImage.name}`).getDownloadURL().then( url => {
+        //   this.tempURL = url
+        //   console.log(url)
+        //   console.log(123131)
+        //   if (this.tempURL) {
+        //     console.log(123)
+        //     console.log(this.tempURL)
+        //     this.handleImageURLstate(this.tempURL)
+        //     // this.handleImageURLstate(tempURL)
+        //     console.log(typeof(this.state.artistImageURL))
+        //     this.state.artistImageURL = this.tempURL
+        //     console.log(this.state)
+        //   }
+        //   // this.setState({artistImageURL: tempURL})
           
-        }).catch(function(error) {
+        // }).catch(function(error) {
 
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
-          switch (error.code) {
-            case 'storage/object-not-found':
-              // File doesn't exist
-              console.log('storage/object-not-found')
-              break;
+        //   // A full list of error codes is available at
+        //   // https://firebase.google.com/docs/storage/web/handle-errors
+        //   switch (error.code) {
+        //     case 'storage/object-not-found':
+        //       // File doesn't exist
+        //       console.log('storage/object-not-found')
+        //       break;
         
-            case 'storage/unauthorized':
-              // User doesn't have permission to access the object
-              console.log('storage/unauthorized')
-              break;
+        //     case 'storage/unauthorized':
+        //       // User doesn't have permission to access the object
+        //       console.log('storage/unauthorized')
+        //       break;
         
-            case 'storage/canceled':
-              // User canceled the upload
-              console.log('storage/canceled')
-              break;
+        //     case 'storage/canceled':
+        //       // User canceled the upload
+        //       console.log('storage/canceled')
+        //       break;
         
-            case 'storage/unknown':
-              // Unknown error occurred, inspect the server response
-              console.log('storage/unknown')
-              break;
-          }
-        })
+        //     case 'storage/unknown':
+        //       // Unknown error occurred, inspect the server response
+        //       console.log('storage/unknown')
+        //       break;
+        //   }
+        // })
       }
     )
+    // console.log(tempURL)
+    // if (this.tempURL != '') {
+    //   this.handleImageURLstate(tempURL)
+    // }
     }
+
+
+    // Get URL
+    getURL = event => {
+      event.preventDefault()
+      var storageRef = firebase.storage().ref()
+      const artistImage = this.state.artistImage
+      storageRef.child(`images/${artistImage.name}`).getDownloadURL().then(url => {
+        this.state.artistImageURL = url
+        console.log(this.state)
+      })
+    }
+    
   
 
   render(){
@@ -206,6 +237,7 @@ class CreateEvent extends React.Component{
   
     <div className = 'button'>
       <CustomButton type = 'submit' onClick = {this.uploadImage}>Upload</CustomButton>
+      <CustomButton type = 'submit' onClick = {this.getURL}>Get URL</CustomButton>
       <CustomButton type = 'submit' onClick = {this.handleSubmit}>Submit</CustomButton>
     </div>
   </div>
