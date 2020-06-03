@@ -10,6 +10,9 @@ import './App.css';
 import HomePage from './pages/home-page/home-page.component';
 import EventDashboard from './pages/Event-dashboard/eventdashboard.component';
 import Admin from './pages/AdminDashboard/adminpage.component';
+import Stream from './pages/video';
+import Contactus from './pages/Contact-page/contact-page.component'
+
 
 import { auth, createUserProfileDocument } from './Firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.action';
@@ -48,6 +51,8 @@ class App extends React.Component {
           <Route exact path='/' component={HomePage} />
           <Route path='/event' component={EventDashboard} />
           <Route path='/admins' component= {Admin} />
+          <Route path ='/music' component = {Stream}/>
+          <Route path = '/contact' component = {Contactus}/>
           <Route
             exact
             path='/signin'

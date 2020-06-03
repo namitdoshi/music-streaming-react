@@ -41,8 +41,8 @@ class SignIn extends React.Component{
     else{
      auth.sendPasswordResetEmail(this.state.email).then(function() {
         // Email sent.
-        alert('Please check you email and verify')
-        
+        alert('Please check your email and verify')
+       
       }).catch(function(error) {
         // An error happened.
         alert('error')
@@ -70,7 +70,7 @@ class SignIn extends React.Component{
           <FormInput name = 'email' value = {this.state.email} label = 'email' handleChange = {this.handleChange} type="email" required/>
           
           <FormInput name = 'password' value = {this.state.password} type="password"  label = 'password' handleChange = {this.handleChange}/>
-          <a onClick = {this.handleReset} href= "#">Click here to reset password</a>
+          <a href ="#" onClick = {this.handleReset} >Click here to reset password</a>
 
           <div className = 'buttons'>
           < CustomButton type="submit">Sign in</CustomButton>

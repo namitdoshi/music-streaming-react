@@ -69,7 +69,7 @@ class CreateEvent extends React.Component{
     }
 
     uploadImage = event => {
-      var storageRef = firebase.storage().ref()
+      const storageRef = firebase.storage().ref('images')
       const artistImage = this.state.artistImage
       const uploadTask = storageRef(`images/${artistImage.name}`).put(artistImage)
       // const uploadTask = storage.ref(`images/${artistImage.name}`).put(artistImage)
