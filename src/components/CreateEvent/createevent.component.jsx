@@ -176,6 +176,13 @@ class CreateEvent extends React.Component{
       />
       <FormInput 
         type = 'text'
+        name = 'linkUrl' 
+        value = {this.state.linkUrl} 
+        onChange = {this.handleChange} 
+        required
+      />
+      <FormInput 
+        type = 'text'
         name = 'profile' 
         value = {this.state.profile} 
         label = 'Profile' 
