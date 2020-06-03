@@ -6,10 +6,11 @@ import {
 
 import CustomButton from '../custom-button/custom-button.component'
 import './event-tile.styles.scss';
-
-const EventTile = ({ eventTitle, artitstName, eventDate, eventTime }) => {
-  return (
-    <div >
+import EventInfo from '../Event/eventInfo.component'
+const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, eventUrl,profile }) => 
+  
+ 
+   ( <div >
       <Card className='event-card'>
         <CardBody>
           <CardTitle className='event-title'>{eventTitle}</CardTitle>
@@ -18,13 +19,10 @@ const EventTile = ({ eventTitle, artitstName, eventDate, eventTime }) => {
           <CardText>Event Date: {eventDate}</CardText>
           <CardText>Event Time: {eventTime}</CardText>
           <div className='event-btn'>
-            <CustomButton style={{marginRight:'.5rem'}}>Learn More </CustomButton>
-            <CustomButton>Artist Profile</CustomButton>
+            
           </div>
         </CardBody>
       </Card>
-    </div>
-  );
-};
-
+    </div>)
+ 
 export default EventTile;

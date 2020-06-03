@@ -46,7 +46,9 @@ class CreateEvent extends React.Component{
           time: '',
           artist: '',
           profile: '',
-          eventurl: ''
+          eventurl: '',
+          linkUrl:''
+
     })
     }
     
@@ -66,51 +68,7 @@ class CreateEvent extends React.Component{
     }
   }
   
-  uploadImage = event => {
-    var storageRef = firebase.storage().ref()
-    const artistImage = this.state.artistImage
-    const uploadTask = storageRef.child(`images/${artistImage.name}`).put(artistImage)
-    // const uploadTask = storage.ref(`images/${artistImage.name}`).put(artistImage)
-
-    uploadTask.on('state_changed', 
-      function (snapshot) {
-
-      },
-      function (error) {
-        console.log(error)
-      },
-      function () {
-        storageRef.child(`images/${artistImage.name}`).getDownloadURL().then(url => {
-          console.log(url)
-        }).catch(function(error) {
-
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
-          switch (error.code) {
-            case 'storage/object-not-found':
-              // File doesn't exist
-              console.log('storage/object-not-found')
-              break;
-        
-            case 'storage/unauthorized':
-              // User doesn't have permission to access the object
-              console.log('storage/unauthorized')
-              break;
-        
-            case 'storage/canceled':
-              // User canceled the upload
-              console.log('storage/canceled')
-              break;
-        
-            case 'storage/unknown':
-              // Unknown error occurred, inspect the server response
-              console.log('storage/unknown')
-              break;
-          }
-        })
-      }
-    )
-  }
+ 
 
   render(){
     return(
@@ -145,6 +103,13 @@ class CreateEvent extends React.Component{
         type = 'time'
         name = 'time' 
         value = {this.state.time} 
+        onChange = {this.handleChange} 
+        required
+      />
+      <FormInput 
+        type = 'text'
+        name = 'linkUrl' 
+        value = {this.state.linkUrl} 
         onChange = {this.handleChange} 
         required
       />
