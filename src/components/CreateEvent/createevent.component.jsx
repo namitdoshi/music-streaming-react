@@ -8,89 +8,109 @@ import firebase from 'firebase';
 
 
 class CreateEvent extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-            id: '',
-            eventtitle: '',
-            date: '',
-            time: '',
-            artist: '',
-            profile: '',
-            eventurl: '',
-            artistImage: null
-        }
-
-        // this.handleImage = this.handleImage.bind(this)
-
-    }
-    handleSubmit = event => {
-      event.preventDefault();
-      const db = firebase.firestore();
-      if (this.state.id && this.state.eventtitle && this.state.date && this.state.time && this.state.artist && this.state.profile && this.state.eventtitle !== '') {
-        const eventRef = db.collection('events').add({
-          id: this.state.id,
-          eventtitle: this.state.eventtitle,
-          date: this.state.date,
-          time: this.state.time,
-          artist: this.state.artist,
-          profile: this.state.profile,
-          eventurl: this.state.eventurl
-        });
-      } else {
-        alert('Fill all the fields')
+  constructor(){
+      super();
+      this.state = {
+          id: '',
+          eventtitle: '',
+          date: '',
+          time: '',
+          artist: '',
+          profile: '',
+          eventurl: '',
+          artistImage: null
       }
+  }
+  
+  handleSubmit = event => {
+    event.preventDefault();
+    const db = firebase.firestore();
+    if (this.state.id && this.state.eventtitle && this.state.date && this.state.time && this.state.artist && this.state.profile && this.state.eventtitle !== '') {
+      const eventRef = db.collection('events').add({
+        id: this.state.id,
+        eventtitle: this.state.eventtitle,
+        date: this.state.date,
+        time: this.state.time,
+        artist: this.state.artist,
+        profile: this.state.profile,
+        eventurl: this.state.eventurl
+      });
+    } else {
+      alert('Fill all the fields')
+    }
 
-      this.setState({
-            id: '',
-            eventtitle: '',
-            date: '',
-            time: '',
-            artist: '',
-            profile: '',
-            eventurl: ''
-      })
+    this.setState({
+          id: '',
+          eventtitle: '',
+          date: '',
+          time: '',
+          artist: '',
+          profile: '',
+          eventurl: ''
+    })
+    }
+    
+
+  handleChange = event => {
+      const {value,name} = event.target
+
+      this.setState({ [name]: value })
+      console.log(this.state)
+  }
+
+  handleImage = event => {
+    if (event.target.files[0]) {
+      const artistImage = event.target.files[0]
+      this.state.artistImage = artistImage
+      console.log(this.state.artistImage)
+    }
+  }
+  
+  uploadImage = event => {
+    var storageRef = firebase.storage().ref()
+    const artistImage = this.state.artistImage
+    const uploadTask = storageRef.child(`images/${artistImage.name}`).put(artistImage)
+    // const uploadTask = storage.ref(`images/${artistImage.name}`).put(artistImage)
+
+    uploadTask.on('state_changed', 
+      function (snapshot) {
+
+      },
+      function (error) {
+        console.log(error)
+      },
+      function () {
+        storageRef.child(`images/${artistImage.name}`).getDownloadURL().then(url => {
+          console.log(url)
+        }).catch(function(error) {
+
+          // A full list of error codes is available at
+          // https://firebase.google.com/docs/storage/web/handle-errors
+          switch (error.code) {
+            case 'storage/object-not-found':
+              // File doesn't exist
+              console.log('storage/object-not-found')
+              break;
+        
+            case 'storage/unauthorized':
+              // User doesn't have permission to access the object
+              console.log('storage/unauthorized')
+              break;
+        
+            case 'storage/canceled':
+              // User canceled the upload
+              console.log('storage/canceled')
+              break;
+        
+            case 'storage/unknown':
+              // Unknown error occurred, inspect the server response
+              console.log('storage/unknown')
+              break;
+          }
+        })
       }
-     
-
-    handleChange = event => {
-        const {value,name} = event.target
-
-        this.setState({ [name]: value })
-        console.log(this.state)
-    }
-
-    handleImage = event => {
-      if (event.target.files[0]) {
-        const artistImage = event.target.files[0]
-        this.state.artistImage = artistImage
-        console.log(this.state.artistImage)
-      }
-    }
-
-    uploadImage = event => {
-      const storageRef = firebase.storage().ref('images')
-      const artistImage = this.state.artistImage
-      const uploadTask = storageRef(`images/${artistImage.name}`).put(artistImage)
-      // const uploadTask = storage.ref(`images/${artistImage.name}`).put(artistImage)
-
-      uploadTask.on('state_changed', 
-        function (snapshot) {
-
-        },
-        function (error) {
-          console.log(error)
-        },
-        function () {
-          storageRef('images').child(artistImage.name).getDownloadURL().then(url => {
-            console.log()
-          })
-          // storage.ref('images').child(artistImage.name).getDownloadURL().then(url => {
-          //   console.log()
-          // })
-        }
-      )
-    }
+    )
+  }
 
   render(){
     return(
