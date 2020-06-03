@@ -23,7 +23,6 @@ class CreateEvent extends React.Component{
           
       }
       this.uploadImage = this.uploadImage.bind(this)
-      // var tempURL = ''
   }
 
   handleImageURLstate = url => {
@@ -31,10 +30,6 @@ class CreateEvent extends React.Component{
     console.log('namit')
     console.log(url)  
   }
-  // var handleImageURLstate (url) {
-  //   console.log(this.state)
-  //   console.log(url)
-  // }
   
   handleSubmit = event => {
     event.preventDefault();
@@ -84,12 +79,9 @@ class CreateEvent extends React.Component{
   }
   
   uploadImage = event => {
-    // this.state.artistImageURL = 'asdasdas'
-    // console.log(this.state.artistImageURL)
     var storageRef = firebase.storage().ref()
     const artistImage = this.state.artistImage
     const uploadTask = storageRef.child(`images/${artistImage.name}`).put(artistImage)
-    // const uploadTask = storage.ref(`images/${artistImage.name}`).put(artistImage)
 
     var tempURL = ''
 
@@ -101,53 +93,35 @@ class CreateEvent extends React.Component{
         console.log(error)
       },
       function () {
-        // storageRef.child(`images/${artistImage.name}`).getDownloadURL().then( url => {
-        //   this.tempURL = url
-        //   console.log(url)
-        //   console.log(123131)
-        //   if (this.tempURL) {
-        //     console.log(123)
-        //     console.log(this.tempURL)
-        //     this.handleImageURLstate(this.tempURL)
-        //     // this.handleImageURLstate(tempURL)
-        //     console.log(typeof(this.state.artistImageURL))
-        //     this.state.artistImageURL = this.tempURL
-        //     console.log(this.state)
-        //   }
-        //   // this.setState({artistImageURL: tempURL})
+        storageRef.child(`images/${artistImage.name}`).getDownloadURL().then( url => {
+          console.log(url)
           
-        // }).catch(function(error) {
+        }).catch(function(error) {
 
-        //   // A full list of error codes is available at
-        //   // https://firebase.google.com/docs/storage/web/handle-errors
-        //   switch (error.code) {
-        //     case 'storage/object-not-found':
-        //       // File doesn't exist
-        //       console.log('storage/object-not-found')
-        //       break;
+          switch (error.code) {
+            case 'storage/object-not-found':
+              // File doesn't exist
+              console.log('storage/object-not-found')
+              break;
         
-        //     case 'storage/unauthorized':
-        //       // User doesn't have permission to access the object
-        //       console.log('storage/unauthorized')
-        //       break;
+            case 'storage/unauthorized':
+              // User doesn't have permission to access the object
+              console.log('storage/unauthorized')
+              break;
         
-        //     case 'storage/canceled':
-        //       // User canceled the upload
-        //       console.log('storage/canceled')
-        //       break;
+            case 'storage/canceled':
+              // User canceled the upload
+              console.log('storage/canceled')
+              break;
         
-        //     case 'storage/unknown':
-        //       // Unknown error occurred, inspect the server response
-        //       console.log('storage/unknown')
-        //       break;
-        //   }
-        // })
+            case 'storage/unknown':
+              // Unknown error occurred, inspect the server response
+              console.log('storage/unknown')
+              break;
+          }
+        })
       }
     )
-    // console.log(tempURL)
-    // if (this.tempURL != '') {
-    //   this.handleImageURLstate(tempURL)
-    // }
     }
 
 
