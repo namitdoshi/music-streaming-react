@@ -1,14 +1,14 @@
 import React from 'react';
-
+import {Card} from 'reactstrap';
 import EventTile from '../../components/Event-tile/event-tile.component'
 import './eventdashboard.styles.scss';
 import firebase from 'firebase';
 import CustomButton from '../../components/custom-button/custom-button.component';
 
 import EventInfo from '../../components/Event/eventInfo.component'
-import { withRouter } from 'react-router-dom';
-
-
+import { withRouter,Route } from 'react-router-dom';
+import Profile from '../../pages/Profile.component'
+ 
 class EventDashboard extends React.Component {
   constructor () {
     super();
@@ -19,11 +19,12 @@ class EventDashboard extends React.Component {
 
     }     
    }
-   handleClick = event =>{
-     
-    this.props.history.push(`/`)
-}
-  
+
+
+   handleSubmit = () => {    
+     this.props.history.push('/')
+   }
+ 
    componentDidMount()
    {
    const db = firebase.firestore();
@@ -44,6 +45,7 @@ class EventDashboard extends React.Component {
   //   const eventRef = db.collection('events').doc('events.id').onSnapshot(function(doc) {
   //     console.log("Current data: ", doc.data());
   //
+
     
     return (
       <div className='container events'>
@@ -51,10 +53,16 @@ class EventDashboard extends React.Component {
        this.state.events.map ( event => {
          return (
             <div key = {event.id}>
+               <Card>
+              <EventTile eventTitle={event.eventtitle} artitstName={event.artist} eventDate={event.date}
+               eventTime={event.time} artistImageURL = {event.artistImageURL}/>
                
-              <EventTile eventTitle={event.eventtitle} artitstName={event.artist} eventDate={event.date} eventTime={event.time} artistImageURL = {event.artistImageURL}/>
+                 <Profile profile = {event.profile}  buttonLabel = 'View Details'> </Profile>
+               
 
-              <CustomButton type = 'submit' onClick = {this.handleClick}>Submit </CustomButton>
+              </Card>
+              
+           
             </div>
          )
        }) }

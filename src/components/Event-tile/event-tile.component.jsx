@@ -27,6 +27,7 @@ const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, eventUrl,pro
             </div>
           </div>
         </CardBody>
+        
       </Card>
     </div>)
  
