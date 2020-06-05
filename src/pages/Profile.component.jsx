@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
+import { SocialIcon } from 'react-social-icons';
+
+
+
 const ModalExample = (props) => {
   const {
     buttonLabel,
     className,
-    profile
+    profile,
+    url
   } = props;
 
   const [modal, setModal] = useState(false);
@@ -21,9 +26,12 @@ const ModalExample = (props) => {
       <ModalHeader toggle={toggle} close={closeBtn}>Modal title</ModalHeader>
       <ModalBody>
         {props.profile}
+
+        <SocialIcon url = {props.url}></SocialIcon>      
+
       </ModalBody>
       <ModalFooter>
-        <Button color="primary" onClick={toggle}><a href ="https://rzp.io/l/u1dOcPE">Dekhte h</a>  </Button>{' '}
+        <Button color="primary" onClick={toggle}><a href ="#" > Pay Now</a></Button>{' '}
         <Button color="secondary" onClick={toggle}>Cancel</Button>
       </ModalFooter>
     </Modal>
