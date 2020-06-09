@@ -5,7 +5,7 @@ import './footer.styles.scss';
 
 const Footer = ( ) => (
  
-<footer className="page-footer font-small pt-4 footer-start">
+<footer className=" font-small pt-4 footer-start">
 
   <div className="container-fluid text-center text-md-left">    
     <div className="row">
@@ -21,7 +21,7 @@ const Footer = ( ) => (
 
         <h5 className="text-uppercase text-1">Links</h5>
 
-        <ul className="list-unstyled">
+        <ul className="list-unstyled link">
           <li>
             <a href="./event">Events</a>
           </li>
@@ -39,15 +39,15 @@ const Footer = ( ) => (
 
         <h5 className="text-uppercase text-1">Legal</h5>
 
-        <ul className="list-unstyled">
+        <ul className="list-unstyled link">
           <li>
-            <a href="#!">Terms and Conditions</a>
+            <a href="https://docs.google.com/document/d/1ZrbNDvCZupuYZwBkZl3oLBKL31_gZbsnsTBnwLlmkVI/edit?usp=sharing">Terms and Conditions</a>
           </li>
           <li>
-            <a href="#!">Privacy Policy</a>
+            <a href="https://docs.google.com/document/d/1cHcpNX9hVmIudYNKdvW7Saxju0jUAw32bnDTxJEnVd8/edit?usp=sharing">Privacy Policy</a>
           </li>
           <li>
-            <a href="#!">Refund Policy</a>
+            <a href="https://docs.google.com/document/d/12gnnGGAKlEdnW77rar835niCvVvDa60Lo5fzsELr26E/edit?usp=sharing">Refund Policy</a>
           </li>
         </ul>
 
