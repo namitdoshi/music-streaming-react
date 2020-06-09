@@ -5,6 +5,7 @@ import './footer.styles.scss';
 
 const Footer = ( ) => (
  
+<div className='footer-container'>
 <footer className=" font-small pt-4 footer-start">
 
   <div className="container-fluid text-center text-md-left">    
@@ -61,6 +62,7 @@ const Footer = ( ) => (
 
 
 </footer>
+</div>
 
 )
 
