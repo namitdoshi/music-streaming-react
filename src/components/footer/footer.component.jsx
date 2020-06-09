@@ -23,16 +23,13 @@ const Footer = ( ) => (
 
         <ul className="list-unstyled">
           <li>
-            <a href="#!">Link 1</a>
+            <a href="./event">Events</a>
           </li>
           <li>
-            <a href="#!">Link 2</a>
+            <a href="./contact">Contact Us</a>
           </li>
           <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
+            <a href="./signin">Login/Sign up</a>
           </li>
         </ul>
 
@@ -44,16 +41,13 @@ const Footer = ( ) => (
 
         <ul className="list-unstyled">
           <li>
-            <a href="#!">Link 1</a>
+            <a href="#!">Terms and Conditions</a>
           </li>
           <li>
-            <a href="#!">Link 2</a>
+            <a href="#!">Privacy Policy</a>
           </li>
           <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
+            <a href="#!">Refund Policy</a>
           </li>
         </ul>
 
@@ -61,8 +55,8 @@ const Footer = ( ) => (
     </div>
   </div>
 
-  <div className="footer-copyright text-center py-3 footer-end">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+  <div className="footer-copyright text-center py-3 footer-end text-1">
+    © 2020 Copyright: Art Live
   </div>
 
 
