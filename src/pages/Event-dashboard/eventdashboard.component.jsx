@@ -57,7 +57,7 @@ class EventDashboard extends React.Component {
               <EventTile eventTitle={event.eventtitle} artitstName={event.artist} eventDate={event.date}
                eventTime={event.time} artistImageURL = {event.artistImageURL}/>
                
-                 <Profile profile = {event.profile} url = {event.youtubeurl} buttonLabel = 'View Details'> </Profile>
+                 <Profile profile = {event.profile} url = {event.youtubeurl} price = {event.price} orderId = {event.orderId} eventtitle = {event.eventtitle}buttonLabel = 'View Details'> </Profile>
                
 
               </Card>
