@@ -71,9 +71,11 @@ const ModalExample = (props) => {
 			description: 'Thank you for nothing. Please give us some money',
 			image: 'http://localhost:1337/logo.svg',
 			handler: function (response) {
-        if ( typeof response.razorpay_payment_id !== 'undefined' ||  response.razorpay_payment_id > 1) {
+        if ( typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id > 1) {
+          // Payment failed
           window.location.href = '/contact';
         } else {
+          // Payment successfull
           window.location.href = '/'
         }
         
