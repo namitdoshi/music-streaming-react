@@ -7,7 +7,7 @@ import {
 import CustomButton from '../custom-button/custom-button.component'
 import './event-tile.styles.scss';
 import EventInfo from '../Event/eventInfo.component'
-const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, eventUrl,profile,artistImageURL}) => 
+const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, eventUrl, profile,artistImageURL}) => 
   
  
    ( <div >
