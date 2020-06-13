@@ -46,42 +46,48 @@ const ModalExample = (props) => {
   
   
   
-  async function displayRazorPay (){
+  async function displayRazorPay() {
+		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
+		if (!res) {
+			alert('Razorpay SDK failed to load. Are you online?')
+			return
+		}
+  
 
-    const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+    const data = await fetch('http://localhost:1337/razorpay', { method: 'POST' }).then((t) =>
+			t.json()
+		)
 
-    if(!res){
-      alert("Failed to load payment gateway")
-    }
-    
-    var options = {
-      "key": "rzp_test_H0teHdXhlYCfKK", // Enter the Key ID generated from the Dashboard
-      "amount": `${props.price *100} `, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-      "currency": "INR",
-      "name": "Art Live",
-      
-      "description": `${props.eventtitle}`,
-      "image": "https://.com/your_logo",
-      
-           //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      "handler": function (response){
-          alert(response.razorpay_payment_id);
-          alert(response.razorpay_order_id);
-          alert(response.razorpay_signature)
-      
+		console.log(data)
+	
 
+		const options = {
+			key: 'rzp_test_H0teHdXhlYCfKK',
+			currency: 'INR',
+			amount: data.amount.toString(),
+			order_id: data.id,
+			
+			description: 'Thank you for nothing. Please give us some money',
+			image: 'http://localhost:1337/logo.svg',
+			handler: function (response) {
+        if ( typeof response.razorpay_payment_id !== 'undefined' ||  response.razorpay_payment_id > 1) {
+          window.location.href = '/contact';
+        } else {
+          window.location.href = '/'
+        }
+        
       },
       
-      
-
-      
-  };
-  
-  const paymentObject = new window.Razorpay(options)
-  paymentObject.open()
-  }
- 
+			prefill: {
+				
+				email: 'sdfdsjfh2@ndsfdf.com',
+				phone_number: '9899999999'
+			}
+		}
+		const paymentObject = new window.Razorpay(options)
+		paymentObject.open()
+	}
 
   return (
   <div>
