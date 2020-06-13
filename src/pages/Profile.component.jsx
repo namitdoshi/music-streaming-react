@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 import { SocialIcon } from 'react-social-icons';
 import { Redirect } from 'react-router-dom';
-import auth from '../Firebase/firebase.utils'
+import { auth } from '../Firebase/firebase.utils'
 
 
 
@@ -50,11 +50,13 @@ const ModalExample = (props) => {
   
   async function displayRazorPay() {
 
-		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+    const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
+    // var user = firebase.auth().currentUser;
     var user = auth.currentUser;
+    // console.log(user)
 
-    if (user) {
+    if (user != null) {
       // User is signed in.
       console.log(1)
       if (!res) {
