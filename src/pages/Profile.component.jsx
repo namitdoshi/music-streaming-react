@@ -3,8 +3,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 import { SocialIcon } from 'react-social-icons';
 import { Redirect } from 'react-router-dom';
-import { auth } from '../Firebase/firebase.utils'
-import { firestore } from '../Firebase/firebase.utils'
+import { auth } from '../Firebase/firebase.utils';
+import { firestore } from '../Firebase/firebase.utils';
 
 
 
@@ -107,11 +107,6 @@ const ModalExample = (props) => {
           }
         },
         
-        prefill: {
-          
-          email: 'sdfdsjfh2@ndsfdf.com',
-          phone_number: '9899999999'
-        }
       }
       const paymentObject = new window.Razorpay(options)
       paymentObject.open()
@@ -129,11 +124,12 @@ const ModalExample = (props) => {
       <ModalHeader toggle={toggle} close={closeBtn}>Modal title</ModalHeader>
       <ModalBody>
         {props.profile}
-
-        <SocialIcon url = {props.url}></SocialIcon>      
-
+      
+        
       </ModalBody>
       <ModalFooter>
+      <SocialIcon url = {props.url}></SocialIcon>      
+
         <Button color="primary" onClick={displayRazorPay}> Pay Now</Button>{' '}
         <Button color="secondary" onClick={toggle}>Cancel</Button>
       </ModalFooter>

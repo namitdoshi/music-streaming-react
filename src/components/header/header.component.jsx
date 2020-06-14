@@ -21,7 +21,7 @@ const Header = ({currentUser}) => {
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="/">Music Stream</NavbarBrand>
+        <NavbarBrand href="/">Art Live</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
