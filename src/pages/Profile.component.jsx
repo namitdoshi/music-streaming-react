@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 import { auth } from '../Firebase/firebase.utils';
 import { firestore } from '../Firebase/firebase.utils';
 
+import * as firebase from 'firebase';
 
 
 const ModalExample = (props) => {
@@ -60,6 +61,7 @@ const ModalExample = (props) => {
     if (user != null) {
       // User is signed in.
       let uid = user.uid
+      
       console.log(1)
       if (!res) {
         alert('Razorpay SDK failed to load. Are you online?')
@@ -89,10 +91,14 @@ const ModalExample = (props) => {
           } else {
             // Payment successfull
             // window.location.href = '/'
-            const db = firestore
-            const eventRef = db.collection('users').doc(uid).collection('eventsPurchased').add({
-              events: props.eventId
-            })
+            
+            const eventRef = firebase.firestore().collection('users').doc(uid).update('eventsPurchased', firebase.firestore.FieldValue.arrayUnion(`${props.eventId}`))
+  
+          
+          
+            
+            
+          
             // const arrayUnion = db.FieldValue.arrayUnion
             // const arrayUnion = firestore.FieldValue.arrayUnion;
 
