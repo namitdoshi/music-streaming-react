@@ -65,7 +65,7 @@ const ModalExample = (props) => {
       
       console.log(1)
       if (!res) {
-        alert('Razorpay SDK failed to load. Are you online?')
+        alert('Razorpay SDK failed to load.')
         return
       }
     
@@ -82,9 +82,9 @@ const ModalExample = (props) => {
         currency: 'INR',
         amount:  str,
       
+        // logo:   
+        description: `${props.eventtitle}`,
         
-        description: 'Thank you for nothing. Please give us some money',
-        image: 'http://localhost:1337/logo.svg',
         handler: function (response) {
           if ( typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id > 1) {
             // Payment failed
