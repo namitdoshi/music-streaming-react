@@ -74,13 +74,13 @@ const ModalExample = (props) => {
       )
   
       console.log(data)
-    
-  
+     
+      let str = props.price *100
       const options = {
         key: 'rzp_test_H0teHdXhlYCfKK',
         currency: 'INR',
-        amount: data.amount.toString(),
-        order_id: data.id,
+        amount:  str,
+      
         
         description: 'Thank you for nothing. Please give us some money',
         image: 'http://localhost:1337/logo.svg',
