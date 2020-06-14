@@ -136,8 +136,8 @@ const ModalExample = (props) => {
       </ModalBody>
       <ModalFooter>
       <SocialIcon url = {props.url}></SocialIcon>      
-
         <Button color="primary" onClick={displayRazorPay}> Pay Now</Button>{' '}
+        <Button color="primary">Watch Now</Button>
         <Button color="secondary" onClick={toggle}>Cancel</Button>
       </ModalFooter>
     </Modal>
