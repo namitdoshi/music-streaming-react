@@ -18,7 +18,8 @@ const ModalExample = (props) => {
     price,
     eventtitle,
     orderId,
-    eventId
+    eventId,
+    artitstName
 
   } = props;
 
@@ -127,7 +128,7 @@ const ModalExample = (props) => {
   <div>
     <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
     <Modal isOpen={modal} toggle={toggle} className={className}>
-      <ModalHeader toggle={toggle} close={closeBtn}>Modal title</ModalHeader>
+      <ModalHeader toggle={toggle} close={closeBtn}>About {props.artitstName}</ModalHeader>
       <ModalBody>
         {props.profile}
       
