@@ -3,13 +3,15 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 import { SocialIcon } from 'react-social-icons';
 import { Redirect } from 'react-router-dom';
-import { auth } from '../Firebase/firebase.utils';
+import { auth, isEvent } from '../Firebase/firebase.utils';
 //import { firestore } from '../Firebase/firebase.utils';
-
+import { withRouter } from 'react-router';
 import * as firebase from 'firebase';
 
 
 const ModalExample = (props) => {
+  
+  
   const {
     buttonLabel,
     className,
@@ -19,17 +21,25 @@ const ModalExample = (props) => {
     eventtitle,
     orderId,
     eventId,
-    artitstName
-
+    artitstName,
   } = props;
-
+  let user = auth.currentUser;
+  let found = ''
+ 
+  let r = false
   const [modal, setModal] = useState(false);
 
+ 
+ 
+ 
+    
+ 
+  
   const toggle = () => setModal(!modal);
 
-  let user = auth.currentUser;
+  
  
- 
+
  
   
   async function loadScript(src) {
@@ -54,7 +64,25 @@ const ModalExample = (props) => {
 
   const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
      
-    
+ 
+  function checkStatus () {
+    { let q = firebase.firestore().collection('users').doc(user.uid)
+    q.get().then(function(doc){
+  if (doc.exists) {
+  
+   let a = doc.data().eventsPurchased
+    found = a.find(element => element == props.eventId);
+  
+     if(found !== undefined){
+      window.location.href = '/video'
+      
+     }
+     else{
+       alert('You need to purchase the ticket to watch concert. Please wait payment gateway is loading....')
+       displayRazorPay()
+     }
+  }})}
+  }
 
 
   async function displayRazorPay() {
@@ -86,17 +114,9 @@ const ModalExample = (props) => {
 
       console.log(data)
 
+     
 
-      let q = firebase.firestore().collection('users').doc('GwUIDilMfSP2feKBuNBiegeYlb13')
-     // q.get().then(function(doc){
-     //   if (doc.exists) {
-          
-      ///    let a = doc.data().eventsPurchased
-
-          //console.log(a)
-          //console.log(doc)
-
-     //   }})
+     
 
      
       let str = props.price *100
@@ -113,50 +133,23 @@ const ModalExample = (props) => {
             // Payment failed
             window.location.href = '/contact';
           } else {
+
+
+
+            
             // Payment successfull
             // window.location.href = '/'
             
-            //const eventRef = firebase.firestore().collection('users').doc(uid).update('eventsPurchased', firebase.firestore.FieldValue.arrayUnion(`${props.eventId}`))
-            firebase.firestore().collection('users').doc(uid).update({
-                 eventId1 : true   
-            })
-            firebase.firestore().collection("events").where("eventId2", "==", 1)
-            .onSnapshot(function(querySnapshot) {
-                var cities = [];
-                querySnapshot.forEach(function(doc) {
-                    cities.push(doc.data().displayName);
-                    if(doc.data().displayName === user.displayName){
-                      console.log('aaaa')
-                    }
-                });
-                console.log("Current cities in CA: ", cities.join(", "));
-            });
-            
-            
-            
-            // const arrayUnion = db.FieldValue.arrayUnion
-            // const arrayUnion = firestore.FieldValue.arrayUnion;
-
-            // db.collection('users').doc(uid).update({
-            //   events: arrayUnion(props.eventId)
-            // })
-             
-            //  || props.orderId == 2 && user.eventId2 == true 
-            //  || props.orderId == 3 && user.eventId3 == true
-            //  || props.orderId == 4 && user.eventId4 == true
-            //  || props.orderId == 5 && user.eventId5 == true
-            //  || props.orderId == 6 && user.eventId6 == true){
-                
-                
-             //   isEvent = true
-             //   console.log(isEvent)
-           // }
-            
+            const eventRef = firebase.firestore().collection('users').doc(uid).update('eventsPurchased', firebase.firestore.FieldValue.arrayUnion(`${props.eventId}`))          
             alert('Payment Successfull')
-
-
+           
+            console.log(isEvent)
             // if (db.collection('users').doc(uid).collection(events).doc())
+
+               r=1
             
+               
+              
           }
         },
         
@@ -167,13 +160,13 @@ const ModalExample = (props) => {
       // No user is signed in.
       alert('Please login to continue')
       window.location.href = '/signin'
-    }
-
-
+    } 
+    
     
     
     
   }
+
   return (
   <div>
     <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
@@ -184,19 +177,13 @@ const ModalExample = (props) => {
       
         
       </ModalBody>
-      <ModalFooter>
-      <SocialIcon url = {props.url}></SocialIcon>      
 
-        
-        
-        <Button color="primary" onClick={displayRazorPay}> Pay Now</Button>
-       
-         <Button>Watch Now</Button>
-      
-         
+      <ModalFooter>
+     
+      <SocialIcon url = {props.url}></SocialIcon> 
          
         
-        
+      <Button color="primary" onClick={checkStatus}>Watch Now</Button>
         <Button color="secondary" onClick={toggle}>Cancel</Button>
       </ModalFooter>
     </Modal>
@@ -204,4 +191,4 @@ const ModalExample = (props) => {
 );
 }
 
-export default ModalExample;
+export default withRouter(ModalExample);

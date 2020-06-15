@@ -41,7 +41,7 @@ const config = {
     return userRef;
   } ;
   
-  
+  export let isEvent ='false'
   
 firebase.initializeApp(config);
 

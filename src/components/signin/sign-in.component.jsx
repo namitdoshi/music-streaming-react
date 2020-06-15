@@ -20,9 +20,9 @@ class SignIn extends React.Component{
     event.preventDefault();
 
     const {email, password } = this.state;
-
+    let eventsPurchased =[]
     try{
-      await auth.signInWithEmailAndPassword(email ,password);
+      await auth.signInWithEmailAndPassword(email ,password,eventsPurchased);
       this.setState({email: '' , password :''})
     }
     catch (error){

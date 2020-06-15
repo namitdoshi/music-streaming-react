@@ -53,6 +53,7 @@ class App extends React.Component {
           <Route path='/admins' component= {Admin} />
           <Route path ='/music' component = {Stream}/>
           <Route path = '/contact' component = {Contactus}/>
+          <Route path = '/video'  component = {Stream}/>
           <Route
             exact
             path='/signin'
