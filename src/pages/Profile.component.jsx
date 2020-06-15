@@ -178,7 +178,7 @@ const ModalExample = (props) => {
   <div>
     <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
     <Modal isOpen={modal} toggle={toggle} className={className}>
-      <ModalHeader toggle={toggle} close={closeBtn}>About {props.artitstName}</ModalHeader>
+      <ModalHeader toggle={toggle} close={closeBtn}>About <strong>{props.artitstName}</strong></ModalHeader>
       <ModalBody>
         {props.profile}
       
