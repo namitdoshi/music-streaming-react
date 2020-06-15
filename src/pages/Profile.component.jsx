@@ -69,10 +69,6 @@ const ModalExample = (props) => {
       // User is signed in.
       let uid = user.uid
       
-    
-     //let r = firebase.firestore().collection('user').DocumentSnapshot.data()
-
-     //console.log(r)
        
       if (!res) {
         alert('Razorpay SDK failed to load.')
@@ -132,30 +128,9 @@ const ModalExample = (props) => {
                 console.log("Current cities in CA: ", cities.join(", "));
             });
             
-            
-            
-            // const arrayUnion = db.FieldValue.arrayUnion
-            // const arrayUnion = firestore.FieldValue.arrayUnion;
-
-            // db.collection('users').doc(uid).update({
-            //   events: arrayUnion(props.eventId)
-            // })
-             
-            //  || props.orderId == 2 && user.eventId2 == true 
-            //  || props.orderId == 3 && user.eventId3 == true
-            //  || props.orderId == 4 && user.eventId4 == true
-            //  || props.orderId == 5 && user.eventId5 == true
-            //  || props.orderId == 6 && user.eventId6 == true){
-                
-                
-             //   isEvent = true
-             //   console.log(isEvent)
            // }
             
             alert('Payment Successfull')
-
-
-            // if (db.collection('users').doc(uid).collection(events).doc())
             
           }
         },
@@ -168,10 +143,6 @@ const ModalExample = (props) => {
       alert('Please login to continue')
       window.location.href = '/signin'
     }
-
-
-    
-    
     
   }
   return (
