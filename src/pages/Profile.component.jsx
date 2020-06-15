@@ -97,10 +97,6 @@ const ModalExample = (props) => {
       // User is signed in.
       let uid = user.uid
       
-    
-     //let r = firebase.firestore().collection('user').DocumentSnapshot.data()
-
-     //console.log(r)
        
       if (!res) {
         alert('Razorpay SDK failed to load.')
@@ -146,7 +142,7 @@ const ModalExample = (props) => {
             console.log(isEvent)
             // if (db.collection('users').doc(uid).collection(events).doc())
 
-               r=1
+              
             
                
               
@@ -161,10 +157,6 @@ const ModalExample = (props) => {
       alert('Please login to continue')
       window.location.href = '/signin'
     } 
-    
-    
-    
-    
   }
 
   return (
