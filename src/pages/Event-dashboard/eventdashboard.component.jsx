@@ -46,6 +46,8 @@ class EventDashboard extends React.Component {
   //     console.log("Current data: ", doc.data());
   //
 
+  
+
     
     return (
       <div className='container events'>

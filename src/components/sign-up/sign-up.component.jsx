@@ -43,7 +43,6 @@ class SignUp extends React.Component {
         email: '',
         password: '',
         confirmPassword: '',
-        eventsPurchased: []
       });
     } catch (error) {
       console.error(error);
