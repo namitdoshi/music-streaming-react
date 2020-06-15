@@ -12,7 +12,8 @@ class SignIn extends React.Component{
     super(props) ;
     this.state = {
       email : '',
-      password : ''
+      password : '',
+      
     }
   }
   handleSubmit = async event => {

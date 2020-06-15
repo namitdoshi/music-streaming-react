@@ -4,7 +4,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { SocialIcon } from 'react-social-icons';
 import { Redirect } from 'react-router-dom';
 import { auth } from '../Firebase/firebase.utils';
-import { firestore } from '../Firebase/firebase.utils';
+//import { firestore } from '../Firebase/firebase.utils';
 
 import * as firebase from 'firebase';
 
@@ -26,7 +26,11 @@ const ModalExample = (props) => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
-  
+
+  let user = auth.currentUser;
+ 
+ 
+ 
   
   async function loadScript(src) {
     return new Promise(resolve => {
@@ -46,24 +50,30 @@ const ModalExample = (props) => {
     
    
  }
+ 
 
   const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
-  
-  
-  
+     
+    
+
+
   async function displayRazorPay() {
 
     const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
     // var user = firebase.auth().currentUser;
-    var user = auth.currentUser;
+   // var user = auth.currentUser;
     console.log(user)
 
     if (user != null) {
       // User is signed in.
       let uid = user.uid
       
-      console.log(1)
+    
+     //let r = firebase.firestore().collection('user').DocumentSnapshot.data()
+
+     //console.log(r)
+       
       if (!res) {
         alert('Razorpay SDK failed to load.')
         return
@@ -73,8 +83,21 @@ const ModalExample = (props) => {
       const data = await fetch('http://localhost:1337/razorpay', { method: 'POST' }).then((t) =>
         t.json()
       )
-  
+
       console.log(data)
+
+
+      let q = firebase.firestore().collection('users').doc('GwUIDilMfSP2feKBuNBiegeYlb13')
+     // q.get().then(function(doc){
+     //   if (doc.exists) {
+          
+      ///    let a = doc.data().eventsPurchased
+
+          //console.log(a)
+          //console.log(doc)
+
+     //   }})
+
      
       let str = props.price *100
       const options = {
@@ -93,21 +116,44 @@ const ModalExample = (props) => {
             // Payment successfull
             // window.location.href = '/'
             
-            const eventRef = firebase.firestore().collection('users').doc(uid).update('eventsPurchased', firebase.firestore.FieldValue.arrayUnion(`${props.eventId}`))
-  
-          
-          
+            //const eventRef = firebase.firestore().collection('users').doc(uid).update('eventsPurchased', firebase.firestore.FieldValue.arrayUnion(`${props.eventId}`))
+            firebase.firestore().collection('users').doc(uid).update({
+                 eventId1 : true   
+            })
+            firebase.firestore().collection("events").where("eventId2", "==", 1)
+            .onSnapshot(function(querySnapshot) {
+                var cities = [];
+                querySnapshot.forEach(function(doc) {
+                    cities.push(doc.data().displayName);
+                    if(doc.data().displayName === user.displayName){
+                      console.log('aaaa')
+                    }
+                });
+                console.log("Current cities in CA: ", cities.join(", "));
+            });
             
             
-          
+            
             // const arrayUnion = db.FieldValue.arrayUnion
             // const arrayUnion = firestore.FieldValue.arrayUnion;
 
             // db.collection('users').doc(uid).update({
             //   events: arrayUnion(props.eventId)
             // })
-            console.log(props.eventId)
+             
+            //  || props.orderId == 2 && user.eventId2 == true 
+            //  || props.orderId == 3 && user.eventId3 == true
+            //  || props.orderId == 4 && user.eventId4 == true
+            //  || props.orderId == 5 && user.eventId5 == true
+            //  || props.orderId == 6 && user.eventId6 == true){
+                
+                
+             //   isEvent = true
+             //   console.log(isEvent)
+           // }
+            
             alert('Payment Successfull')
+
 
             // if (db.collection('users').doc(uid).collection(events).doc())
             
@@ -122,8 +168,12 @@ const ModalExample = (props) => {
       alert('Please login to continue')
       window.location.href = '/signin'
     }
-	}
 
+
+    
+    
+    
+  }
   return (
   <div>
     <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
@@ -137,7 +187,16 @@ const ModalExample = (props) => {
       <ModalFooter>
       <SocialIcon url = {props.url}></SocialIcon>      
 
-        <Button color="primary" onClick={displayRazorPay}> Pay Now</Button>{' '}
+        
+        
+        <Button color="primary" onClick={displayRazorPay}> Pay Now</Button>
+       
+         <Button>Watch Now</Button>
+      
+         
+         
+        
+        
         <Button color="secondary" onClick={toggle}>Cancel</Button>
       </ModalFooter>
     </Modal>
