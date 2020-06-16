@@ -74,7 +74,7 @@ const ModalExample = (props) => {
     found = a.find(element => element == props.eventId);
   
      if(found !== undefined){
-      window.location.href = '/video'
+      window.location.href = `/video?qwesdsad=${props.eventId}`
       
      }
      else{
