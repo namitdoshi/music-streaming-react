@@ -2,21 +2,20 @@ import React from 'react';
 import Iframe from 'react-iframe'
 import { auth } from '../../Firebase/firebase.utils';
 import { firestore } from '../../Firebase/firebase.utils'
+import {useState} from 'react';
 
-class MusicPlayer extends React.Component{
 
-  constructor () {
-    super()
-    this.state = {
-      eventURL: ''
-    }
-  }
+const MusicPlayer = () => {
 
-  render(){
+ 
+   
+  
+  let [eventURL,setEventUrl] = useState('')
+ 
     const queryString = window.location.search;
     const eventId = queryString.slice(10)
     console.log(eventId)
-
+    
     if (auth.currentUser != null) {
       var eventLink = ''
       firestore.collection('events').where('id', '==', eventId).get()
@@ -25,23 +24,28 @@ class MusicPlayer extends React.Component{
               // doc.data() is never undefined for query doc snapshots
               console.log(doc.id, " => ", doc.data());
               // eventURL = doc.data().artistImageURL
-              eventLink = 'https://player.cloud.wowza.com/hosted/kjjqhpbf/player.html'
-              this.setState({eventURL: eventLink})
+              eventLink = doc.data().artistEventUrl
+              setEventUrl(eventLink)
+              
           });
+          
+          
           // loadScript(eventURL) 
-          console.log(this.state.eventURL)
+          console.log(eventURL)
+
       })
       .catch(function(error) {
           console.log("Error getting documents: ", error);
       });
+      
       // const URL = loadScript('//player.cloud.wowza.com/hosted/hgwpfnyc/wowza.js')
       return( 
         
       // <Iframe url='
       // ' />
       <div style={{display: 'flex', justifyContent: 'center'}}>
-      {console.log(this.state.eventURL)}
-        <Iframe url={this.state.eventURL}
+      {console.log(eventURL)}
+        <Iframe url={eventURL}
         width="100%"
         height="1000px"
         id="myId"
@@ -61,7 +65,7 @@ class MusicPlayer extends React.Component{
       )
     }
   }
-}
+
    
 
 
