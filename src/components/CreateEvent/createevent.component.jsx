@@ -3,7 +3,6 @@ import firebase from 'firebase';
 
 import FormInput from '../../components/form-input/form-input.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
-import storage from '../../Firebase/firebase.utils';
 import './createevent.styles.scss'
 
 
@@ -37,7 +36,7 @@ class CreateEvent extends React.Component{
     event.preventDefault();
     const db = firebase.firestore();
     if (this.state.id && this.state.eventtitle && this.state.date && this.state.time && this.state.artist && this.state.profile && this.state.eventtitle !== '' && this.state.price !== 0) {
-      const eventRef = db.collection('events').add({
+      db.collection('events').add({
         id: this.state.id,
         eventtitle: this.state.eventtitle,
         date: this.state.date,
