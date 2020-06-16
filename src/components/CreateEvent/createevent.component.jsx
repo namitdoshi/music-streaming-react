@@ -20,7 +20,8 @@ class CreateEvent extends React.Component{
       profile: '',
       eventurl: '',
       artistImage: null,
-      artistImageURL: ''
+      artistImageURL: '',
+      price: 0
         
     }
       this.uploadImage = this.uploadImage.bind(this)
@@ -35,7 +36,7 @@ class CreateEvent extends React.Component{
   handleSubmit = event => {
     event.preventDefault();
     const db = firebase.firestore();
-    if (this.state.id && this.state.eventtitle && this.state.date && this.state.time && this.state.artist && this.state.profile && this.state.eventtitle !== '') {
+    if (this.state.id && this.state.eventtitle && this.state.date && this.state.time && this.state.artist && this.state.profile && this.state.eventtitle !== '' && this.state.price !== 0) {
       const eventRef = db.collection('events').add({
         id: this.state.id,
         eventtitle: this.state.eventtitle,
@@ -44,7 +45,8 @@ class CreateEvent extends React.Component{
         artist: this.state.artist,
         profile: this.state.profile,
         eventurl: this.state.eventurl,
-        artistImageURL: this.state.artistImageURL
+        artistImageURL: this.state.artistImageURL,
+        price: this.state.price
       });
     } else {
       alert('Fill all the fields')
@@ -58,7 +60,8 @@ class CreateEvent extends React.Component{
       artist: '',
       profile: '',
       eventurl: '',
-      artistImageURL: ''
+      artistImageURL: '',
+      price: 0
     })
     }
     
@@ -177,13 +180,6 @@ class CreateEvent extends React.Component{
       />
       <FormInput 
         type = 'text'
-        name = 'linkUrl' 
-        value = {this.state.linkUrl} 
-        onChange = {this.handleChange} 
-        required
-      />
-      <FormInput 
-        type = 'text'
         name = 'profile' 
         value = {this.state.profile} 
         label = 'Profile' 
@@ -194,7 +190,7 @@ class CreateEvent extends React.Component{
         type = 'text'
         name = 'eventurl'
         value = {this.state.eventurl} 
-        label = 'Youtube Url'
+        label = 'Event Url'
         onChange = {this.handleChange} 
         required
       />
@@ -203,6 +199,14 @@ class CreateEvent extends React.Component{
         name = 'id' 
         value = {this.state.id} 
         label = 'Event Id'
+        onChange = {this.handleChange} 
+        required
+      />
+      <FormInput
+        type = 'text'
+        name = 'price' 
+        value = {this.state.price} 
+        label = 'Event Ticket Price'
         onChange = {this.handleChange} 
         required
       />
