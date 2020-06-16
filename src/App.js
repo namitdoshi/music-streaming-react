@@ -50,7 +50,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/event' component={EventDashboard} />
-          <Route path='/admins' component= {Admin} />
+          <Route path='/9302935595' component= {Admin} />
           <Route path ='/music' component = {Stream}/>
           <Route path = '/contact' component = {Contactus}/>
           <Route path = '/video'  component = {Stream}/>

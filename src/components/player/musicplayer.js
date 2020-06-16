@@ -14,7 +14,7 @@ const MusicPlayer = () => {
  
     const queryString = window.location.search;
     const eventId = queryString.slice(10)
-    console.log(eventId)
+    //console.log(eventId)
     
     if (auth.currentUser != null) {
       var eventLink = ''
@@ -22,7 +22,7 @@ const MusicPlayer = () => {
       .then(function(querySnapshot) {
           querySnapshot.forEach(function(doc) {
               // doc.data() is never undefined for query doc snapshots
-              console.log(doc.id, " => ", doc.data());
+             // console.log(doc.id, " => ", doc.data());
               // eventURL = doc.data().artistImageURL
               eventLink = doc.data().artistEventUrl
               setEventUrl(eventLink)
@@ -31,7 +31,7 @@ const MusicPlayer = () => {
           
           
           // loadScript(eventURL) 
-          console.log(eventURL)
+         // console.log(eventURL)
 
       })
       .catch(function(error) {

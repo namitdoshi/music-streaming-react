@@ -1,7 +1,7 @@
 import React from 'react'
 import './about-us.styles.scss';
 
-// import G3 from '../../assets/img/guruji3.jfif';
+
 import laptopGuitar from '../../assets/img/laptop-guitar.png'
 const AboutUs = ( ) => (
   <div className = 'about-us' id='about-us'>

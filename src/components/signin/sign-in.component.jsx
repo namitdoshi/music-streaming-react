@@ -5,7 +5,6 @@ import FormInput from '../form-input/form-input.component';
 import google from '../../assets/img/google3.png'
 import {auth,signInWithGoogle} from '../../Firebase/firebase.utils'
 
-import {Link} from 'react-router-dom'
 
 class SignIn extends React.Component{
   constructor(props){
