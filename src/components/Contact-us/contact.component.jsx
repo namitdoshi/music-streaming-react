@@ -27,7 +27,7 @@ class Contact extends React.Component{
 
         const db = firebase.firestore();
         if (this.state.name && this.state.email && this.state.number && this.state.subject && this.state.description !== '') {
-          const contactRef = db.collection('contact').add({
+            db.collection('contact').add({
              name : this.state.name,
              email: this.state.email,
              number: this.state.number,

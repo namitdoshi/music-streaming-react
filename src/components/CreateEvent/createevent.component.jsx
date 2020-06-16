@@ -3,8 +3,6 @@ import firebase from 'firebase';
 
 import FormInput from '../../components/form-input/form-input.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
-import './createevent.styles.scss'
-
 
 
 class CreateEvent extends React.Component{
@@ -76,7 +74,7 @@ class CreateEvent extends React.Component{
   handleImage = event => {
     if (event.target.files[0]) {
       const artistImage = event.target.files[0]
-      this.state.artistImage = artistImage
+      this.setState({artistImage : artistImage})
       console.log(this.state.artistImage)
     }
   }
@@ -86,7 +84,7 @@ class CreateEvent extends React.Component{
     const artistImage = this.state.artistImage
     const uploadTask = storageRef.child(`images/${artistImage.name}`).put(artistImage)
 
-    var tempURL = ''
+    
 
     uploadTask.on('state_changed', 
       function (snapshot) {
@@ -121,6 +119,8 @@ class CreateEvent extends React.Component{
               // Unknown error occurred, inspect the server response
               console.log('storage/unknown')
               break;
+            default:
+              console.log('Error')
           }
         })
       }

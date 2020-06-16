@@ -1,6 +1,6 @@
 import React from "react";
 
-import './home-page.styles.scss'
+
 import Home from '../../components/home/home.component';
 import AboutUs from '../../components/About-us/About-us.component'
 import Inspiration from '../../components/inspiration-section/inspiration-section.component'

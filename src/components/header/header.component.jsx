@@ -12,7 +12,7 @@ import {
   NavLink
   
 } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
+
 
 const Header = ({currentUser}) => {
   const [isOpen, setIsOpen] = useState(false);
