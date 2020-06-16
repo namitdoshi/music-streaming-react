@@ -8,9 +8,7 @@ import { auth, isEvent } from '../Firebase/firebase.utils';
 import { withRouter } from 'react-router';
 import * as firebase from 'firebase';
 
-
 const ModalExample = (props) => {
-  
   
   const {
     buttonLabel,
@@ -28,20 +26,9 @@ const ModalExample = (props) => {
  
   let r = false
   const [modal, setModal] = useState(false);
-
- 
- 
- 
-    
- 
   
   const toggle = () => setModal(!modal);
 
-  
- 
-
- 
-  
   async function loadScript(src) {
     return new Promise(resolve => {
       const script = document.createElement('script')
@@ -55,15 +42,10 @@ const ModalExample = (props) => {
       }
       document.body.appendChild(script)
     })
-
-
-    
    
  }
  
-
-  const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
-     
+  const closeBtn = <button className="close" onClick={toggle}>&times;</button>; 
  
   function checkStatus () {
     { let q = firebase.firestore().collection('users').doc(user.uid)
@@ -109,12 +91,7 @@ const ModalExample = (props) => {
       )
 
       console.log(data)
-
-     
-
-     
-
-     
+  
       let str = props.price *100
       const options = {
         key: 'rzp_test_H0teHdXhlYCfKK',
@@ -129,10 +106,7 @@ const ModalExample = (props) => {
             // Payment failed
             window.location.href = '/contact';
           } else {
-
-
-
-            
+         
             // Payment successfull
             // window.location.href = '/'
             
@@ -140,12 +114,7 @@ const ModalExample = (props) => {
             alert('Payment Successfull')
            
             console.log(isEvent)
-            // if (db.collection('users').doc(uid).collection(events).doc())
-
-              
-            
-               
-              
+            // if (db.collection('users').doc(uid).collection(events).doc()) 
           }
         },
         
@@ -166,15 +135,13 @@ const ModalExample = (props) => {
       <ModalHeader toggle={toggle} close={closeBtn}>About <strong>{props.artitstName}</strong></ModalHeader>
       <ModalBody>
         {props.profile}
-      
-        
+             
       </ModalBody>
 
       <ModalFooter>
      
       <SocialIcon url = {props.url}></SocialIcon> 
-         
-        
+                
       <Button color="primary" onClick={checkStatus}>Watch Now</Button>
         <Button color="secondary" onClick={toggle}>Cancel</Button>
       </ModalFooter>
