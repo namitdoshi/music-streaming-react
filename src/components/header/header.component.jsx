@@ -40,7 +40,7 @@ const Header = ({currentUser}) => {
           </div>
       ) : (
         <NavLink href = "/signin">
-            <span style={{color: '#fff'}}>Sign In</span>  
+            <span style={{color: '#fff'}}>Sign In | Sign up</span>  
           </NavLink>
       )}
           
