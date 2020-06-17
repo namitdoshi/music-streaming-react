@@ -35,7 +35,11 @@ const Header = ({currentUser}) => {
           </Nav>
          
           {currentUser ? (
-          <div style={{color: '#fff', cursor: 'pointer'}} onClick={() => auth.signOut()}>
+          <div style={{color: '#fff', cursor: 'pointer'}} onClick={() => {
+            auth.signOut()
+            alert('You have been signed out!')
+            window.location.href = '/'
+          }}>
             Sign Out
           </div>
       ) : (
