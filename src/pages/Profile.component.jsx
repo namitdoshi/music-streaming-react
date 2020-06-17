@@ -49,7 +49,8 @@ const ModalExample = (props) => {
      
  
   function checkStatus () {
-    { let q = firebase.firestore().collection('users').doc(user.uid)
+   if (auth.currentUser !== null) {
+    let q = firebase.firestore().collection('users').doc(user.uid)
     q.get().then(function(doc){
   if (doc.exists) {
   
@@ -64,7 +65,11 @@ const ModalExample = (props) => {
        displayRazorPay()
      }
     }}
-   )}
+   )
+   } else {
+     alert('Please login to continue')
+     window.location.href = '/signin'
+   }
   }
 
 
