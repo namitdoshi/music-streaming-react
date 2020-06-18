@@ -69,7 +69,7 @@ class SignIn extends React.Component{
           <FormInput name = 'email' value = {this.state.email} label = 'email' handleChange = {this.handleChange} type="email" required/>
           
           <FormInput name = 'password' value = {this.state.password} type="password"  label = 'password' handleChange = {this.handleChange}/>
-          <a href ="#" onClick = {this.handleReset} >Click here to reset password</a>
+          <a href="/signin" onClick = {this.handleReset} >Click here to reset password</a>
 
           <div className = 'buttons'>
           < CustomButton type="submit">Sign in</CustomButton>
