@@ -21,6 +21,9 @@ const ModalExample = (props) => {
     eventId,
     artitstName,
   } = props;
+  
+  
+  
   let user = auth.currentUser;
   let found = ''
  
@@ -43,28 +46,37 @@ const ModalExample = (props) => {
       document.body.appendChild(script)
     })
  }
- 
+    
 
   const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
-     
+    
+  
+ 
+ 
  
   function checkStatus () {
    if (auth.currentUser !== null) {
     let q = firebase.firestore().collection('users').doc(user.uid)
     q.get().then(function(doc){
-  if (doc.exists) {
-  
-   let a = doc.data().eventsPurchased
-    found = a.find(element => element === props.eventId);
-  
+    
+      if (doc.exists) {
+        
+          
+         firebase.firestore().collection('users').doc(user.uid).update('eventsPurchased', firebase.firestore.FieldValue.arrayUnion('0'))
+         
+     let a =  doc.data().eventsPurchased
+      
+     setTimeout(() => {
+         found = a.find(element => element === props.eventId);
+        }, 5000);
      if(found !== undefined){
       window.location.href = `/video?qwesdsad=${props.eventId}`
      }
      else{
        alert('You need to purchase the ticket to watch concert. Please wait payment gateway is loading....')
        displayRazorPay()
-     }
-    }}
+     }}
+    }
    )
    } else {
      alert('Please login to continue')

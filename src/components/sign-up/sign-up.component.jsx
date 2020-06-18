@@ -15,8 +15,7 @@ class SignUp extends React.Component {
       displayName: '',
       email: '',
       password: '',
-      confirmPassword: '',
-      
+      confirmPassword: ''
     };
   }
 
@@ -25,19 +24,20 @@ class SignUp extends React.Component {
 
     const { displayName, email, password, confirmPassword } = this.state;
 
+    if(password.length < 6){
+      alert('Password must be atleast 6 characters long')
+    }
+
+    
     if (password !== confirmPassword) {
       alert("passwords don't match");
       return;
     }
 
-    if(password.length < 6){
-      alert('Password must be atleast 6 characters long')
-    }
-
     try {
       const { user } = await auth.createUserWithEmailAndPassword(
         email,
-        password,
+        password
       );
 
       await createUserProfileDocument(user, { displayName });
@@ -46,7 +46,7 @@ class SignUp extends React.Component {
         displayName: '',
         email: '',
         password: '',
-        confirmPassword: '',
+        confirmPassword: ''
       });
     } catch (error) {
       console.error(error);
@@ -63,8 +63,8 @@ class SignUp extends React.Component {
     const { displayName, email, password, confirmPassword } = this.state;
     return (
       <div className='sign-up'>
-        <h2>Don't have an account?</h2>
-        <span>Use the form below to easily create a new account or <strong>sign in with Google</strong></span>
+        <h2 className='title'>I do not have a account</h2>
+        <span>Sign up with your email and password</span>
         <form className='sign-up-form' onSubmit={this.handleSubmit}>
           <FormInput
             type='text'
