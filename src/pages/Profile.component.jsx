@@ -25,7 +25,7 @@ const ModalExample = (props) => {
   
   
   let user = auth.currentUser;
-  let found = ''
+  let found = undefined
  
   
   const [modal, setModal] = useState(false)
@@ -65,10 +65,18 @@ const ModalExample = (props) => {
          firebase.firestore().collection('users').doc(user.uid).update('eventsPurchased', firebase.firestore.FieldValue.arrayUnion('0'))
          
      let a =  doc.data().eventsPurchased
-      
-     setTimeout(() => {
-         found = a.find(element => element === props.eventId);
-        }, 5000);
+     
+        if(a===undefined || a=== null)
+         {
+          alert('You need to purchase the ticket to watch concert. Please wait payment gateway is loading....')
+          displayRazorPay()
+         }
+
+         else{
+          found = a.find(element => element === props.eventId);
+         }
+         
+        
      if(found !== undefined){
       window.location.href = `/video?qwesdsad=${props.eventId}`
      }
