@@ -1,12 +1,16 @@
-h1{
-  font-family: 'Architects Daughter', cursive;;
-}
+// h1{
+//   font-family: 'lato';
+// }
 
 .home {
   // display: flex;
   // flex-direction: row;
   // align-items: center;
   margin-top: 5vh;
+  // background: url('../../assets/img/3709793.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 
   .home-heading {
     display: flex;

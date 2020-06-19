@@ -21,7 +21,7 @@ const Header = ({currentUser}) => {
 
   return (
     <div>
-      <Navbar color="dark" dark expand="md">
+      <Navbar color="light" dark expand="md">
         <NavbarBrand href="/">Art Live</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
