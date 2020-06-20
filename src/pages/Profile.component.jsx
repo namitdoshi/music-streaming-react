@@ -14,7 +14,8 @@ const ModalExample = (props) => {
     buttonLabel,
     className,
     profile,
-    url,
+    socialUrl1,
+    socialUrl2,
     price,
     eventtitle,
     orderId,
@@ -120,7 +121,7 @@ const ModalExample = (props) => {
       const options = {
         key: 'rzp_test_H0teHdXhlYCfKK',
         currency: 'INR',
-        amount:  str,
+        amount:  `${props.price  * 100} `,
         // logo:   
         description: `${props.eventtitle}`,
         
@@ -152,7 +153,7 @@ const ModalExample = (props) => {
   <div>
     <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
     <Modal isOpen={modal} toggle={toggle} className={className}>
-      <ModalHeader toggle={toggle} close={closeBtn}>About <strong>{props.artitstName}</strong></ModalHeader>
+      <ModalHeader toggle={toggle} close={closeBtn}> <strong>{props.eventtitle} : {props.artitstName}</strong></ModalHeader>
       <ModalBody>
         {props.profile}
       
@@ -161,7 +162,8 @@ const ModalExample = (props) => {
 
       <ModalFooter>
      
-      <SocialIcon url = {props.url}></SocialIcon> 
+      <SocialIcon url = {props.socialUrl1}></SocialIcon> 
+      <SocialIcon url = {props.socialUrl2}></SocialIcon> 
       <Button color="primary" onClick={checkStatus}>Watch Now</Button>
         <Button color="secondary" onClick={toggle}>Cancel</Button>
       </ModalFooter>

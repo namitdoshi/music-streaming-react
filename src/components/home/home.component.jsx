@@ -1,9 +1,8 @@
 import React from 'react';
 
 import './home.styles.scss';
+import CarouselComponent from '../Carousel/carousel.component'
 
-import Homeimage from "../../assets/img/62236-removebg-preview.png";
-import Video from "../../assets/img/v.mp4";
 
 const Home = ( ) => (
   <div className = 'home'>
@@ -11,14 +10,10 @@ const Home = ( ) => (
     <source src={Video} type="video/mp4" />
   </video>
     <div className='row'>
-      <div className='home-heading col-sm-12 col-md-6 col-xl-6'>
-        sfdmsdklfkjsdkfjk sjkfjsdj jsdfkj sdkjfj skljsdlj lkjsl
-      </div>
-      <div className='home-img col-sm-12 col-md-6 col-xl-6'>
-       
+      <CarouselComponent/>
       </div>
     </div>
-  </div>
+  
 );
 
 export default Home;
