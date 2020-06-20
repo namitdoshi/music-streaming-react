@@ -28,6 +28,6 @@ const items = [
   }
 ];
 
-const CarouselComponent = () => <UncontrolledCarousel items={items} />;
+const CarouselComponent = () => <UncontrolledCarousel items={items} controls={false} />;
 
 export default CarouselComponent;
