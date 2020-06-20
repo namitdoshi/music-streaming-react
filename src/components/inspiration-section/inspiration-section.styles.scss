@@ -23,3 +23,21 @@
   }
   
 }
+
+@media(max-width: 786px) {
+  img {
+    width: 32vw !important;
+  }
+}
+
+@media(max-width: 425px) {
+  img {
+    width: 44vw !important;
+  }
+}
+
+@media(max-width: 375px) {
+  img {
+    width: 50vw !important;
+  }
+}
