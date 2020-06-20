@@ -1,6 +1,6 @@
 .about-us{
   text-align: center;
-  margin-top: 2.5vh;
+  margin-top: 5vh;
   height: 100vh;
   // display: flex;
   // flex-direction: row;
@@ -31,9 +31,18 @@
 //   border: 5px solid black;
 // }
 
-@media (max-width: 767.98px) {
+@media (max-width: 768px) {
   .about-us{
-    height: 72vh;
+    margin-top: 5vh;
+    height: auto;
+    
+    .about-us-heading {
+      margin-bottom: 5vh;
+    }
+
+    .img-container {
+      display: flex;
+    }
   }
 }
 

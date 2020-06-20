@@ -7,7 +7,7 @@ const AboutUs = ( ) => (
   <div className = 'about-us' id='about-us'>
     <h1 className = 'about-us-heading'>About us</h1>
     <div className='row'>
-      <div className='col-12 col-sm-12 col-md-6 col-xl-6'>
+      <div className='col-12 col-sm-12 col-md-6 col-xl-6 img-container'>
         <img src= {laptopGuitar} alt="man with guitar and laptop"/>
       </div>
       <div className='col-12 col-sm-12 col-md-6 col-xl-6 about-us-text'>
