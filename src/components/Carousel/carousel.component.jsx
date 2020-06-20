@@ -15,15 +15,15 @@ const items = [
   {
     src: require('../../assets/img/bg2.png'),
     altText: 'Slide 2',
-    // caption: 'Slide 2',
-    // header: 'Slide 2 Header',
+    caption: 'Slide 2',
+    header: 'Slide 2 Header',
     key: '2'
   },
   {
     src: require('../../assets/img/bg3.png'),
     altText: 'Slide 3',
-    caption: 'Slide 3',
-    header: 'Slide 3 Header',
+    // caption: 'Slide 3',
+    // header: 'Slide 3 Header',
     key: '3'
   }
 ];
