@@ -6,9 +6,7 @@ import CarouselComponent from '../Carousel/carousel.component'
 
 const Home = ( ) => (
   <div className = 'home'>
-    <div className='row'>
-      <CarouselComponent/>    
-      </div>
+    <CarouselComponent/>    
     </div>
   
 );
