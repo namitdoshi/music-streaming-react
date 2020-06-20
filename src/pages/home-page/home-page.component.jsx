@@ -8,8 +8,8 @@ import Footer from '../../components/footer/footer.component'
 
 const HomePage = () => (
   <div>
+    <Home/>
     <div className='container-fluid'>
-      <Home/>
       <AboutUs/>
       <Inspiration/>
     </div>
