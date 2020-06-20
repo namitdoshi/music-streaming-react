@@ -46,8 +46,16 @@
   }
 }
 
+@media(max-width: 425px) {
+  .about-us{
+    img {
+      width: 100vw !important;
+    }
+  }
+}
+
 @media (max-width: 320px) {
   .about-us{
-    height: 86vh;
+    height: auto;
   }
 }
