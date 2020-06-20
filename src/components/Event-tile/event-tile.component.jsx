@@ -7,7 +7,7 @@ import {
 
 import './event-tile.styles.scss';
 
-const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, artistImageURL,genre,eventDescription}) => 
+const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, artistImageURL,genre,eventDescription,ticketPrice}) => 
   
  
    ( <div >
@@ -25,6 +25,7 @@ const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, artistImageU
               <CardText>Event Time: {eventTime}</CardText>
               <CardText>Genre: {genre}</CardText>
               <CardText>Description: {eventDescription}</CardText>
+              <CardText>Ticket Price: {ticketPrice}</CardText>
               </CardBody>
             </div>
           </div>

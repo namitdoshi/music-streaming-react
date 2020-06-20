@@ -24,7 +24,7 @@ const MusicPlayer = () => {
               // doc.data() is never undefined for query doc snapshots
              // console.log(doc.id, " => ", doc.data());
               // eventURL = doc.data().artistImageURL
-              eventLink = doc.data().artistEventUrl
+              eventLink = doc.data().eventUrl
               setEventUrl(eventLink)
               
           });

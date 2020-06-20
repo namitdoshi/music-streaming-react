@@ -3,6 +3,9 @@ import firebase from 'firebase';
 
 import FormInput from '../../components/form-input/form-input.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
+import storage from '../../Firebase/firebase.utils';
+import './createevent.styles.scss'
+
 
 
 class CreateEvent extends React.Component{
@@ -15,11 +18,14 @@ class CreateEvent extends React.Component{
       time: '',
       artist: '',
       profile: '',
-      eventurl: '',
+      eventUrl: '',
       artistImage: null,
       artistImageURL: '',
-      price: 0
-        
+      linkUrl1: '',
+      linkUrl: '',
+      genre: '',
+      description: '',
+      price: ''
     }
       this.uploadImage = this.uploadImage.bind(this)
   }
@@ -33,17 +39,25 @@ class CreateEvent extends React.Component{
   handleSubmit = event => {
     event.preventDefault();
     const db = firebase.firestore();
-    if (this.state.id && this.state.eventtitle && this.state.date && this.state.time && this.state.artist && this.state.profile && this.state.eventtitle !== '' && this.state.price !== 0) {
-      db.collection('events').add({
+    if (this.state.id && this.state.eventtitle && 
+      this.state.date && this.state.time && 
+      this.state.artist && this.state.genre && this.state.description &&
+      this.state.profile && this.state.eventtitle !== '') {
+      const eventRef = db.collection('events').add({
         id: this.state.id,
         eventtitle: this.state.eventtitle,
         date: this.state.date,
         time: this.state.time,
         artist: this.state.artist,
         profile: this.state.profile,
-        eventurl: this.state.eventurl,
+        eventUrl: this.state.eventUrl,
         artistImageURL: this.state.artistImageURL,
+        linkUrl: this.state.linkUrl,
+        linkUrl1: this.state.linkUrl1,
+        genre:this.state.genre,
+        description: this.state.description,
         price: this.state.price
+
       });
     } else {
       alert('Fill all the fields')
@@ -56,9 +70,13 @@ class CreateEvent extends React.Component{
       time: '',
       artist: '',
       profile: '',
-      eventurl: '',
+      eventUrl: '',
       artistImageURL: '',
-      price: 0
+      linkUrl1: '',
+      linkUrl: '',
+      genre: '',
+      description: '',
+      price: ''
     })
     }
     
@@ -74,7 +92,7 @@ class CreateEvent extends React.Component{
   handleImage = event => {
     if (event.target.files[0]) {
       const artistImage = event.target.files[0]
-      this.setState({artistImage : artistImage})
+      this.state.artistImage = artistImage
       console.log(this.state.artistImage)
     }
   }
@@ -84,11 +102,11 @@ class CreateEvent extends React.Component{
     const artistImage = this.state.artistImage
     const uploadTask = storageRef.child(`images/${artistImage.name}`).put(artistImage)
 
-    
+    var tempURL = ''
 
     uploadTask.on('state_changed', 
       function (snapshot) {
-        console.log(snapshot)
+
       },
       function (error) {
         console.log(error)
@@ -119,8 +137,6 @@ class CreateEvent extends React.Component{
               // Unknown error occurred, inspect the server response
               console.log('storage/unknown')
               break;
-            default:
-              console.log('Error')
           }
         })
       }
@@ -171,9 +187,26 @@ class CreateEvent extends React.Component{
         required
         />
       <FormInput 
-        type = 'time'
-        name = 'time' 
+        type = 'text'
+        name = 'time'
+        label =  'Time' 
         value = {this.state.time} 
+        onChange = {this.handleChange} 
+        required
+      />
+      <FormInput 
+        type = 'text'
+        name = 'linkUrl' 
+        value = {this.state.linkUrl} 
+        onChange = {this.handleChange} 
+        label = 'Social Link'
+        required
+      />
+       <FormInput 
+        type = 'text'
+        name = 'linkUrl1' 
+        label = 'Social Link'
+        value = {this.state.linkUrl1} 
         onChange = {this.handleChange} 
         required
       />
@@ -185,10 +218,26 @@ class CreateEvent extends React.Component{
         onChange = {this.handleChange} 
         required
       />
+       <FormInput 
+        type = 'text'
+        name = 'genre' 
+        label = 'Genre'
+        value = {this.state.genre} 
+        onChange = {this.handleChange} 
+        required
+      />
+       <FormInput 
+        type = 'text'
+        name = 'description' 
+        label = 'Description'
+        value = {this.state.description} 
+        onChange = {this.handleChange} 
+        required
+      />
       <FormInput
         type = 'text'
         name = 'eventurl'
-        value = {this.state.eventurl} 
+        value = {this.state.eventUrl} 
         label = 'Event Url'
         onChange = {this.handleChange} 
         required
@@ -201,11 +250,11 @@ class CreateEvent extends React.Component{
         onChange = {this.handleChange} 
         required
       />
-      <FormInput
+       <FormInput 
         type = 'text'
         name = 'price' 
+        label = 'Price'
         value = {this.state.price} 
-        label = 'Event Ticket Price'
         onChange = {this.handleChange} 
         required
       />

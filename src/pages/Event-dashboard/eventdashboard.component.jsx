@@ -50,17 +50,16 @@ class EventDashboard extends React.Component {
             <div key = {event.id}>
                <Card>
               <EventTile eventTitle={event.eventtitle} artitstName={event.artist} eventDate={event.date}
-               eventTime={event.time} artistImageURL = {event.artistImageURL} eventDescription = {event.eventDescription} genre = {event.genre}/>
+               eventTime={event.time} artistImageURL = {event.artistImageURL} eventDescription = {event.description}
+                ticketPrice ={event.price} genre = {event.genre}/>
                
               <div style={{display: 'flex', justifyContent: 'flex-end', marginRight: '1rem', marginBottom: '1rem'}}>
-                <Profile  profile ={event.profile} url = {event.youtubeurl} price = {event.price} orderId = {event.orderId} 
-                eventtitle = {event.eventtitle} eventId = {event.id} artitstName = {event.artist} buttonLabel = 'View Details'> 
+                <Profile  profile ={event.profile}  price = {event.price}  
+                eventtitle = {event.eventtitle} eventId = {event.id} artitstName = {event.artist} 
+                socialUrl1 = {event.linkUrl} socialUrl2 = {event.linkUrl1}
+                buttonLabel = 'View Details'> 
                 </Profile>
               </div>
-               {
-                 console.log(this.purchased)
-               }
-
               </Card>
             </div>
          )
