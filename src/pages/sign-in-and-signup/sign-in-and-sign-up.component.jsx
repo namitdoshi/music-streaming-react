@@ -6,8 +6,8 @@ import './sign-in-and-sign-up.styles.scss';
 
 const SignInAndSignUpPage = () => (
   <div className='sign-in-and-sign-up'>
-    <div className='container'>
-      <div className='row'>
+    <div className='container' style={{padding: 0}}>
+      <div className='row no-gutters'>
         <div className='col-12 col-sm-12 col-md-6 col-xl-6'><SignIn /></div>
         <div className='col-12 col-sm-12 col-md-6 col-xl-6' className='signup'><SignUp/></div>
       </div>
