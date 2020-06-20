@@ -1,5 +1,5 @@
 .inspiration {
-  margin-top: 2.5vh;
+  margin-top: 5vh;
   text-align: center;
   min-height: 100vh;
   
@@ -25,19 +25,25 @@
 }
 
 @media(max-width: 786px) {
-  img {
-    width: 32vw !important;
+  .inspiration {
+    img {
+      width: 32vw !important;
+    }
   }
 }
 
 @media(max-width: 425px) {
-  img {
-    width: 44vw !important;
+  .inspiration {
+    img {
+      width: 44vw !important;
+    }
   }
 }
 
 @media(max-width: 375px) {
-  img {
-    width: 50vw !important;
+  .inspiration {
+    img {
+      width: 50vw !important;
+    }
   }
 }
