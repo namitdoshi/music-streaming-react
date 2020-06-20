@@ -35,13 +35,22 @@ class EventDashboard extends React.Component {
         //console.log(snapshot)
     })
     .catch(error => console.log(error))}
+
+
   render () {
   
   //   const eventRef = db.collection('events').doc('events.id').onSnapshot(function(doc) {
   //     console.log("Current data: ", doc.data());
   //
 
-    
+  if(this.events == [])
+
+    {
+    return (
+      <div>No events available! Please connect to our social channels to stay updated about our events.</div>
+    )
+  }
+  else {
     return (
       <div className='container events'>
       {  this.state.events &&
@@ -68,7 +77,7 @@ class EventDashboard extends React.Component {
       
       </div>
     )
-  }
+  }}
 }
 
 export default withRouter(EventDashboard);
