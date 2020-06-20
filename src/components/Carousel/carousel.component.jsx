@@ -8,8 +8,8 @@ const items = [
   {
     src: require('../../assets/img/bg1.png'),
     altText: 'Slide 1',
-    caption: 'Slide 1',
-    header: 'Slide 1 Header',
+    // caption: 'Slide 1',
+    // header: 'Slide 1 Header',
     key: '1'
   },
   {
@@ -22,8 +22,8 @@ const items = [
   {
     src: require('../../assets/img/bg3.png'),
     altText: 'Slide 3',
-    caption: 'Slide 3',
-    header: 'Slide 3 Header',
+    // caption: 'Slide 3',
+    // header: 'Slide 3 Header',
     key: '3'
   }
 ];

@@ -13,13 +13,14 @@
     margin-bottom: 10vh;
   }
 
-  h2 {
+  span {
     margin-left: 5vw;
     margin-right: 5vw;
+    font-size: 32px !important;
   }
 
   .inspiration-text {
-  line-height: unset;
+    line-height: unset;
   }
   
 }
@@ -29,6 +30,10 @@
     img {
       width: 32vw !important;
     }
+
+    span {
+      font-size: 24px !important;
+    }
   }
 }
 
@@ -36,6 +41,10 @@
   .inspiration {
     img {
       width: 44vw !important;
+    }
+
+    span {
+      font-size: 20px !important;
     }
   }
 }
