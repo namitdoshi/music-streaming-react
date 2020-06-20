@@ -9,7 +9,7 @@ const SignInAndSignUpPage = () => (
     <div className='container'>
       <div className='row'>
         <div className='col-12 col-sm-12 col-md-6 col-xl-6'><SignIn /></div>
-        <div className='col-12 col-sm-12 col-md-6 col-xl-6'><SignUp/></div>
+        <div className='col-12 col-sm-12 col-md-6 col-xl-6' className='signup'><SignUp/></div>
       </div>
     </div>
   </div>
