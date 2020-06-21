@@ -25,7 +25,8 @@ class CreateEvent extends React.Component{
       linkUrl: '',
       genre: '',
       description: '',
-      price: ''
+      price: '',
+      eventDuration: ''
     }
       this.uploadImage = this.uploadImage.bind(this)
   }
@@ -56,7 +57,8 @@ class CreateEvent extends React.Component{
         linkUrl1: this.state.linkUrl1,
         genre:this.state.genre,
         description: this.state.description,
-        price: this.state.price
+        price: this.state.price,
+        eventDuration: this.state.eventDuration
 
       });
     } else {
@@ -76,7 +78,8 @@ class CreateEvent extends React.Component{
       linkUrl: '',
       genre: '',
       description: '',
-      price: ''
+      price: '',
+      eventDuration: ''
     })
     }
     
@@ -234,9 +237,17 @@ class CreateEvent extends React.Component{
         onChange = {this.handleChange} 
         required
       />
+       <FormInput 
+        type = 'text'
+        name = 'eventDuration' 
+        label = 'Event Duration'
+        value = {this.state.eventDuration} 
+        onChange = {this.handleChange} 
+        required
+      />
       <FormInput
         type = 'text'
-        name = 'eventurl'
+        name = 'eventUrl'
         value = {this.state.eventUrl} 
         label = 'Event Url'
         onChange = {this.handleChange} 
