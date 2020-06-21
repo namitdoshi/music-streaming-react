@@ -111,7 +111,7 @@ const ModalExample = (props) => {
       }
     
   
-      const data = await fetch('http://localhost:1337/razorpay', { method: 'POST' }).then((t) =>
+      const data = await fetch('http://ec2-13-235-244-56.ap-south-1.compute.amazonaws.com:1337/verification', { method: 'POST' }).then((t) =>
         t.json()
       )
 
