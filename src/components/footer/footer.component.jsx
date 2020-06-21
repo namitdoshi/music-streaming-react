@@ -13,7 +13,9 @@ const Footer = ( ) => (
       <div className="col-md-6 mt-md-0 mt-3 no-gutters">
         
         <h5 className="text-uppercase text-1">Art live</h5>
-        <p className='text-2'>Always at your service</p>
+        <p className='text-2'>Live Concerts! Anytime Anywhere!</p>
+        <a href='https://www.instagram.com/artlive.in/' target='_blank'><i className="fab fa-instagram footer-icons"></i></a>
+        <a href='https://www.facebook.com/ART-LIVE-103822921381896' target='_blank' style={{paddingLeft: '1rem'}}><i className="fab fa-facebook-square footer-icons"></i></a>
       </div>
 
       <hr className="clearfix w-100 d-md-none pb-3" />
