@@ -27,6 +27,7 @@ const MusicPlayer = () => {
               // eventURL = doc.data().artistImageURL
               eventLink = doc.data().eventUrl
               setEventUrl(eventLink)
+              // console.log(eventLink)
               
           });
           
