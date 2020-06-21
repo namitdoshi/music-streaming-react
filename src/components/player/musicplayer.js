@@ -13,7 +13,8 @@ const MusicPlayer = () => {
   let [eventURL,setEventUrl] = useState('')
  
     const queryString = window.location.search;
-    const eventId = queryString.slice(10)
+    const index = queryString.indexOf('=')
+    const eventId = queryString.slice(index+1)
     //console.log(eventId)
     
     if (auth.currentUser != null) {
