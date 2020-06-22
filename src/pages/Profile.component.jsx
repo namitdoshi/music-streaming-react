@@ -96,6 +96,7 @@ const ModalExample = (props) => {
 
   async function displayRazorPay() {
 
+
     const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
     // var user = firebase.auth().currentUser;
    // var user = auth.currentUser;
@@ -117,13 +118,14 @@ const ModalExample = (props) => {
 
      // console.log(data)
      
-      let str = props.price *100
+    
       const options = {
-        key: 'rzp_test_H0teHdXhlYCfKK',
+        key: 'rzp_live_IAW7Yh1zAJk9XQ',
         currency: 'INR',
         amount:  `${props.price  * 100} `,
         // logo:   
-        description: `${props.eventtitle}`,
+      
+        description: `${props.eventtitle}: ${props.artitstName}`,
         
         handler: function (response) {
           if ( typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id > 1) {
