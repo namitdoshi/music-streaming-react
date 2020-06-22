@@ -24,7 +24,7 @@ const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, artistImageU
               <CardText>Event Date: {eventDate}</CardText>
               <CardText>Event Time: {eventTime}</CardText>
               <CardText>Genre: {genre}</CardText> 
-              <CardText>Ticket Price: {ticketPrice}</CardText>
+              <CardText>Ticket Price: <i class="fas fa-rupee-sign"></i> {ticketPrice}</CardText>
               <CardText>Event Duration: {eventDuration}</CardText>
               <CardText>Description: {eventDescription}</CardText>
               </CardBody>
