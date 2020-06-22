@@ -44,13 +44,13 @@ const Footer = ( ) => (
 
         <ul className="list-unstyled link">
           <li>
-            <a href="https://docs.google.com/document/d/1ZrbNDvCZupuYZwBkZl3oLBKL31_gZbsnsTBnwLlmkVI/edit?usp=sharing">Terms and Conditions</a>
+            <a href="https://docs.google.com/document/d/1ZrbNDvCZupuYZwBkZl3oLBKL31_gZbsnsTBnwLlmkVI/edit?usp=sharing" target='_blank'>Terms and Conditions</a>
           </li>
           <li>
-            <a href="https://docs.google.com/document/d/1cHcpNX9hVmIudYNKdvW7Saxju0jUAw32bnDTxJEnVd8/edit?usp=sharing">Privacy Policy</a>
+            <a href="https://docs.google.com/document/d/1cHcpNX9hVmIudYNKdvW7Saxju0jUAw32bnDTxJEnVd8/edit?usp=sharing" target='_blank'>Privacy Policy</a>
           </li>
           <li>
-            <a href="https://docs.google.com/document/d/12gnnGGAKlEdnW77rar835niCvVvDa60Lo5fzsELr26E/edit?usp=sharing">Refund Policy</a>
+            <a href="https://docs.google.com/document/d/12gnnGGAKlEdnW77rar835niCvVvDa60Lo5fzsELr26E/edit?usp=sharing" target='_blank'>Refund Policy</a>
           </li>
         </ul>
 
