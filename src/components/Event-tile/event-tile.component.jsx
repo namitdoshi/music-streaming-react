@@ -14,7 +14,7 @@ const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, artistImageU
       <Card className='event-card'>
         <CardBody>
           <div className='row'>
-            <div className='col-xs-12 col-sm-12 col-md-6 col-lg-6'>
+            <div className='col-xs-12 col-sm-12 col-md-6 col-lg-6 artist-img-container'>
               <img src= {artistImageURL} alt="artist image" className='artist-image'/>
             </div>
             <div className='col-xs-12 col-sm-12 col-md-6 col-lg-6'>
@@ -24,7 +24,7 @@ const EventTile = ({ eventTitle, artitstName, eventDate, eventTime, artistImageU
               <CardText>Event Date: {eventDate}</CardText>
               <CardText>Event Time: {eventTime}</CardText>
               <CardText>Genre: {genre}</CardText> 
-              <CardText>Ticket Price: {ticketPrice}</CardText>
+              <CardText>Ticket Price: <i class="fas fa-rupee-sign"></i> {ticketPrice}</CardText>
               <CardText>Event Duration: {eventDuration}</CardText>
               <CardText>Description: {eventDescription}</CardText>
               </CardBody>
