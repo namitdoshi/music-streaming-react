@@ -44,3 +44,9 @@
     }
   }
 }
+
+@media(max-width: 375px) {
+  .custom-button {
+    padding: 0 16px;
+  }
+}

@@ -11,10 +11,16 @@
   .buttons{
     display: flex;
     justify-content: space-between;
+    margin-top: 1rem;
 
     .isGoogleSignIn {
       padding: 0;
       border: 0;
+      width: 64%;
+
+      img {
+        width: auto;
+      }
     }
   }
 }

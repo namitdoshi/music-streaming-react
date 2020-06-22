@@ -12,6 +12,7 @@ import {
   NavLink
   
 } from 'reactstrap';
+import './header.styles.scss';
 
 
 const Header = ({currentUser}) => {
@@ -46,7 +47,7 @@ const Header = ({currentUser}) => {
             Sign Out
           </div>
       ) : (
-        <NavLink href = "/signin">
+        <NavLink href = "/signin" className='signin-link'>
             <span style={{color: '#fff'}}>Sign In | Sign up</span>  
           </NavLink>
       )}
