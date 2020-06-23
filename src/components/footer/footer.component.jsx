@@ -34,6 +34,9 @@ const Footer = ( ) => (
           <li>
             <a href="./signin">Login/Sign up</a>
           </li>
+          <li>
+            <a href="https://docs.google.com/document/d/1O2AFx9AYl30q8O_Vvk7Y4eKdKY3VRElaYokkh75i7Uk/edit?usp=sharing">Help and Support</a>
+          </li>
         </ul>
 
       </div>

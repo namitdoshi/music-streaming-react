@@ -124,7 +124,7 @@ const ModalExample = (props) => {
         currency: 'INR',
         amount:  `${props.price  * 100} `,
         // logo:   
-      
+        
         description: `${props.eventtitle}: ${props.artitstName}`,
         
         handler: function (response) {

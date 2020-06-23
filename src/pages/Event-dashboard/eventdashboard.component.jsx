@@ -3,7 +3,7 @@ import {Card} from 'reactstrap';
 import EventTile from '../../components/Event-tile/event-tile.component'
 import './eventdashboard.styles.scss';
 import firebase from 'firebase';
-
+import {firestore} from '../../Firebase/firebase.utils'
 import { withRouter } from 'react-router-dom';
 import Profile from '../../pages/Profile.component'
 
@@ -12,7 +12,7 @@ class EventDashboard extends React.Component {
     super();
     
    this.state = {
-      events: null,
+      events: [],
     }     
    }
    
@@ -26,12 +26,15 @@ class EventDashboard extends React.Component {
     db.collection('events')
     .get()
     .then( snapshot => {
+    
       const events = [] 
       snapshot.forEach( doc => {
+        
         const data = doc.data()
         events.push(data)
       })
-       this.setState({ events: events})
+     
+       this.setState({ events: events, snapshot:snapshot})
         //console.log(snapshot)
     })
     .catch(error => console.log(error))}
@@ -43,15 +46,32 @@ class EventDashboard extends React.Component {
   //     console.log("Current data: ", doc.data());
   //
 
-  if(this.events == [])
+  if(this.state.events.length === 0  )
+  
 
     {
+      //console.log(this.state.events)
+     // console.log(this.state.snapshot)
     return (
-      <div>No events available! Please connect to our social channels to stay updated about our events.</div>
+
+      <div>Sorry No events available. Please stay tuned to our social platforms to stay updated about our events
+        
+        <a href='https://www.instagram.com/artlive.in/' target='_blank'><i className="fab fa-instagram footer-icons"></i></a>
+        <a href='https://www.facebook.com/ART-LIVE-103822921381896' target='_blank' style={{paddingLeft: '1rem'}}><i className="fab fa-facebook-square footer-icons"></i></a>
+
+      
+      </div>
+
+      
     )
   }
   else {
+    {
+      console.log(this.state.events)
+    }
     return (
+     
+      
       <div className='container events'>
       {  this.state.events &&
        this.state.events.map ( event => {
