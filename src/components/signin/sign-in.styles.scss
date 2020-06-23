@@ -16,8 +16,6 @@
     .isGoogleSignIn {
       padding: 0;
       border: 0;
-      width: 64%;
-
       img {
         width: auto;
       }
@@ -25,3 +23,8 @@
   }
 }
 
+@media(max-width: 320px) {
+  .isGoogleSignIn {
+    width: 64%;
+  }
+}
