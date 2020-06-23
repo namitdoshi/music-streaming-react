@@ -53,11 +53,13 @@ class EventDashboard extends React.Component {
       //console.log(this.state.events)
      // console.log(this.state.snapshot)
     return (
-
-      <div>Sorry No events available. Please stay tuned to our social platforms to stay updated about our events
+      <div className='container' style={{textAlign: 'center', marginTop: '5vh'}}>
+        <h3>Sorry No events available. Please stay tuned to our social platforms to stay updated about our events.
+        <br/>
         
-        <a href='https://www.instagram.com/artlive.in/' target='_blank'><i className="fab fa-instagram footer-icons"></i></a>
-        <a href='https://www.facebook.com/ART-LIVE-103822921381896' target='_blank' style={{paddingLeft: '1rem'}}><i className="fab fa-facebook-square footer-icons"></i></a>
+        <a href='https://www.instagram.com/artlive.in/' target='_blank'><i className="fab fa-instagram footer-icons" style={{color: '#000'}}></i></a>
+        <a href='https://www.facebook.com/ART-LIVE-103822921381896' target='_blank' style={{paddingLeft: '1rem', color: '#000'}}><i className="fab fa-facebook-square footer-icons"></i></a>
+        </h3>
 
       
       </div>
