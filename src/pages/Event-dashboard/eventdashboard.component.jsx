@@ -68,9 +68,9 @@ class EventDashboard extends React.Component {
     )
   }
   else {
-    {
-      console.log(this.state.events)
-    }
+    // {
+      // console.log(this.state.events)
+    // }
     return (
      
       
