@@ -5,7 +5,7 @@ import { SocialIcon } from 'react-social-icons';
 import { auth } from '../Firebase/firebase.utils';
 import { withRouter } from 'react-router';
 import * as firebase from 'firebase';
-
+import './profile.styles.scss'
 
 const ModalExample = (props) => {
   
@@ -158,8 +158,7 @@ const ModalExample = (props) => {
       <ModalHeader toggle={toggle} close={closeBtn}> <strong>{props.eventtitle} : {props.artitstName}</strong></ModalHeader>
       <ModalBody>
         {props.profile}
-      
-        
+        <div className = 'techcontact'> Please contact (+91) 9302935595 for any technical isssues.</div>
       </ModalBody>
 
       <ModalFooter>
