@@ -8,7 +8,7 @@ const AboutUs = ( ) => (
     <h1 className = 'about-us-heading'>About us</h1>
     <div className='row'>
       <div className='col-12 col-sm-12 col-md-6 col-xl-6 img-container'>
-        <img src= {laptopGuitar} alt="man with guitar and laptop"/>
+        <img src= {laptopGuitar} alt="man with guitar and laptop" />
       </div>
       <div className='col-12 col-sm-12 col-md-6 col-xl-6 about-us-text'>
         <span>
