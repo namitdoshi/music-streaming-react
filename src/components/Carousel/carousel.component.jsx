@@ -6,7 +6,7 @@ import './carousel.styles.scss'
 
 const items = [
   {
-    src: require('../../assets/img/bg1.png'),
+    src: require('../../assets/img/bg1-min.png'),
     altText: 'Slide 1',
     // caption: 'Slide 1',
     // header: 'Slide 1 Header',
