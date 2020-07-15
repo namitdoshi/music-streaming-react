@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Artlive</string>
+    <string name="title_activity_main">Artlive</string>
+    <string name="package_name">io.ionic.Artlive</string>
+    <string name="custom_url_scheme">io.ionic.Artlive</string>
+</resources>
