@@ -47,7 +47,6 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "2.2.1",
     "react-social-icons": "^4.1.0"
   }
 }

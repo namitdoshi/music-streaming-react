@@ -1,7 +1,0 @@
-{
-    "name": "Artlive",
-    "integrations": {
-      "capacitor": {}
-    },
-    "type": "react"
-  }
