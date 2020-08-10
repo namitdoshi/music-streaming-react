@@ -39,6 +39,12 @@ const MusicPlayer = () => {
       .catch(function(error) {
           console.log("Error getting documents: ", error);
       });
+
+      // alert("You'll be redirected to the streaming page in a few seconds!")
+    //   let timer = setTimeout(function() {
+    //     window.location='https://www.facebook.com/groups/2071483472995581/?ref=share'
+    // }, 3000)
+      window.location='https://www.facebook.com/groups/2071483472995581/?ref=share'
       
       // const URL = loadScript('//player.cloud.wowza.com/hosted/hgwpfnyc/wowza.js')
       return( 
